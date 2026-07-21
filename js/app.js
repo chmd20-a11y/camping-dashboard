@@ -225,10 +225,14 @@ window.CC = window.CC || {};
     if (s.tel) contact.push('📞 <a href="tel:' + esc(s.tel) + '">' + esc(s.tel) + '</a>');
     if (home) contact.push('<a href="' + esc(home) + '" target="_blank" rel="noopener">홈페이지 ↗</a>');
     var contactHtml = contact.length ? '<div class="contact-line">' + contact.join(' · ') + '</div>' : '';
-    var online = CC.hasRealtime(s);
-    var srcNote = online
-      ? '🗓️ 선택 기간 <b>' + periodTxt() + '</b> · 이 캠핑장은 <b>온라인 예약처</b>가 있어요. 아래 <b>예약처로 이동</b>에서 이 기간 실시간 빈자리·요금을 바로 확인·예약하세요. <span class="muted-note">(대시보드는 자리 정보를 직접 조회하지 않아요)</span>'
-      : '🗓️ 선택 기간 <b>' + periodTxt() + '</b> · 온라인 예약 링크가 없어요. <b>전화</b>나 <b>예약 검색(네이버)</b>로 자리·요금을 확인하세요.';
+    var srcNote;
+    if (rl.calendar) {
+      srcNote = '🗓️ <b>' + periodTxt() + '</b> · 아래 <b>예약 캘린더 열기</b>를 누르면 예약 사이트에서 이 기간 <b>실시간 빈자리</b>를 바로 확인·예약할 수 있어요. <span class="muted-note">(대시보드가 자리를 직접 조회하진 않아요)</span>';
+    } else if (rl.direct) {
+      srcNote = '🗓️ <b>' + periodTxt() + '</b> · 아래 <b>예약처로 이동</b> 후 <b>' + esc(s.name) + '</b>을(를) 찾아 이 기간 자리를 확인하세요.';
+    } else {
+      srcNote = '🗓️ <b>' + periodTxt() + '</b> · 온라인 예약 링크가 없어요. <b>전화</b>나 <b>예약 검색(네이버)</b>로 자리·요금을 확인하세요.';
+    }
 
     $("sheet").innerHTML =
       '<div class="sheet-grab"></div>' +

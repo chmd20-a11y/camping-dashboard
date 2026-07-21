@@ -65,13 +65,27 @@ window.CC = window.CC || {};
     return "";  // URL 아님(설명 텍스트 등)
   };
 
-  /* 예약 이동 링크 — 유효한 예약URL이 있으면 그곳, 없으면 네이버 '○○ 예약' 검색으로 대체 */
+  /* 예약URL이 캠핑장별 예약 페이지(달력)로 보이는지 / 일반 랜딩(홈)인지 */
+  CC.reserveKind = function (s) {
+    var u = CC.normUrl(s.resveUrl);
+    if (!u) return "none";
+    try {
+      var p = new URL(u);
+      var hasPath = (p.pathname && p.pathname.replace(/\/+$/, "") !== "") || !!p.search;
+      return hasPath ? "calendar" : "landing";  // 경로/쿼리 있으면 캠핑장 예약 페이지로 간주
+    } catch (e) { return "landing"; }
+  };
+
+  /* 예약 이동 링크 — 캠핑장 예약 캘린더 > 예약처 홈 > 네이버 '○○ 예약' 검색 */
   CC.reserveLink = function (s) {
     var r = CC.normUrl(s.resveUrl);
-    if (r) return { url: r, label: "예약처로 이동", direct: true };
+    if (r) {
+      var cal = CC.reserveKind(s) === "calendar";
+      return { url: r, label: cal ? "🗓️ 예약 캘린더 열기" : "예약처로 이동", direct: true, calendar: cal };
+    }
     return {
       url: "https://search.naver.com/search.naver?query=" + encodeURIComponent(s.name + " 예약"),
-      label: "예약 검색 (네이버)", direct: false
+      label: "예약 검색 (네이버)", direct: false, calendar: false
     };
   };
 
