@@ -11,13 +11,21 @@ window.CC = window.CC || {};
   "use strict";
 
   var FAV_KEY = "cc_favorites";
+  var CHK_KEY = "cc_checks";
+  var WX_BASE = "https://api.open-meteo.com/v1/forecast";
+  // 자리 확인 상태 (tier: 정렬 계층 — 낮을수록 위)
+  var CHK = { open: { t: "자리있음", s: "있음", tier: 0 }, booked: { t: "예약함", s: "예약", tier: 1 }, none: { t: "자리없음", s: "없음", tier: 5 } };
 
   var state = {
-    start: "2026-08-15",  // 캠핑 기간 시작 (계절 추천 기준)
-    end: "2026-08-16",    // 캠핑 기간 종료
+    start: "",            // init에서 '이번 주말'로 설정 (예보 범위 안)
+    end: "",
     sort: "reco",
     regions: { "파주": false, "연천": false, "포천": false, "강원": false },  // 기본: 미선택 = 전체
-    favorites: {}
+    favorites: {},
+    checks: {},           // { id: {s:"open"|"none"|"booked", d:"YYYY-MM-DD"} }
+    weather: {},          // { id: agg }  (현재 기간 기준)
+    weatherKey: "",       // 날씨를 받아둔 "start|end"
+    weatherMode: ""       // "loading" | "forecast" | "far" | "fail"
   };
 
   var $ = function (id) { return document.getElementById(id); };
@@ -33,6 +41,21 @@ window.CC = window.CC || {};
     var a = ymdToDate(state.start), b = ymdToDate(state.end), n = nightsCount();
     var f = function (d) { return (d.getMonth() + 1) + "/" + d.getDate(); };
     return f(a) + " → " + f(b) + " · " + n + "박 " + (n + 1) + "일";
+  }
+  function todayYmd() { return fmtYmd(new Date()); }
+  function daysFromToday(ymd) { return Math.round((ymdToDate(ymd) - ymdToDate(todayYmd())) / 86400000); }
+  function relDay(ymd) { var d = -daysFromToday(ymd); if (d <= 0) return "오늘"; if (d === 1) return "어제"; return d + "일 전"; }
+
+  /* ---------- 빠른 날짜 프리셋 (오늘 기준, 예보 범위 안) ---------- */
+  function upcomingSat() { var d = new Date(); var add = (6 - d.getDay() + 7) % 7; return addDays(todayYmd(), add); }
+  var PRESETS = {
+    tmr:  function () { var s = addDays(todayYmd(), 1); return { start: s, end: addDays(s, 1) }; },
+    week: function () { var s = upcomingSat(); return { start: s, end: addDays(s, 1) }; },
+    next: function () { var s = addDays(upcomingSat(), 7); return { start: s, end: addDays(s, 1) }; }
+  };
+  function activePreset() {
+    for (var k in PRESETS) { var p = PRESETS[k](); if (p.start === state.start && p.end === state.end) return k; }
+    return "";
   }
 
   /* ---------- 선호(localStorage) ---------- */
@@ -53,6 +76,52 @@ window.CC = window.CC || {};
     renderList();
   }
 
+  /* ---------- 자리 확인 추적 (localStorage) ---------- */
+  function loadChecks() { try { state.checks = JSON.parse(localStorage.getItem(CHK_KEY) || "{}") || {}; } catch (e) { state.checks = {}; } }
+  function saveChecks() { try { localStorage.setItem(CHK_KEY, JSON.stringify(state.checks)); } catch (e) { /* 무시 */ } }
+  function toggleCheck(id, st) {
+    var cur = state.checks[id];
+    if (cur && cur.s === st) { delete state.checks[id]; toast("확인 표시를 지웠어요"); }
+    else { state.checks[id] = { s: st, d: todayYmd() }; toast(CHK[st].t + "(으)로 표시 · 다음에 열어도 기억해요"); }
+    saveChecks();
+    renderList();
+  }
+
+  /* ---------- 날씨 조회 (Open-Meteo, 143곳 한 번에) ---------- */
+  function weatherKeyFor() { return state.start + "|" + state.end; }
+  function r3(n) { return Math.round(n * 1000) / 1000; }
+  function fetchWeather() {
+    var key = weatherKeyFor();
+    // 예보 범위(약 16일) 밖이면 요청하지 않음 — 없는 정밀도를 만들지 않는다
+    if (daysFromToday(state.start) > 15) {
+      state.weather = {}; state.weatherKey = key; state.weatherMode = "far";
+      renderWeatherNote(); renderList(); renderCuration();
+      return;
+    }
+    if (state.weatherKey === key && state.weatherMode === "forecast") { renderWeatherNote(); return; }
+    state.weatherMode = "loading"; renderWeatherNote();
+    var sites = CC.SITES;
+    var lat = sites.map(function (s) { return r3(s.lat); }).join(",");
+    var lng = sites.map(function (s) { return r3(s.lng); }).join(",");
+    var url = WX_BASE + "?latitude=" + lat + "&longitude=" + lng +
+      "&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max,wind_gusts_10m_max" +
+      "&wind_speed_unit=ms&timezone=Asia%2FSeoul&start_date=" + state.start + "&end_date=" + state.end;
+    fetch(url).then(function (r) { return r.json(); }).then(function (data) {
+      if (data && data.error) throw new Error(data.reason || "error");
+      var arr = Array.isArray(data) ? data : [data];
+      var w = {};
+      for (var i = 0; i < sites.length && i < arr.length; i++) {
+        var agg = CC.wxAggregate(arr[i] && arr[i].daily);
+        if (agg) w[sites[i].id] = agg;
+      }
+      state.weather = w; state.weatherKey = key; state.weatherMode = "forecast";
+      renderWeatherNote(); renderList(); renderCuration();
+    }).catch(function () {
+      state.weather = {}; state.weatherKey = key; state.weatherMode = "fail";
+      renderWeatherNote(); renderList();
+    });
+  }
+
   /* ---------- 필터 & 정렬 ---------- */
   function anyRegion() {
     return CC.REGION_META.some(function (r) { return state.regions[r.key]; });
@@ -62,19 +131,30 @@ window.CC = window.CC || {};
     if (!anyRegion()) return CC.SITES.slice();
     return CC.SITES.filter(function (s) { return state.regions[s.group]; });
   }
+  // 날씨 점수는 예보를 신뢰할 수 있는 기간(forecast)에만 반영
+  function wxAdj(s) { return state.weatherMode === "forecast" ? CC.wxScore(state.weather[s.id]) : 0; }
+  function recoScore(s) { return CC.score(s, state.start) + wxAdj(s); }
+  // 정렬 계층: 자리있음 → 예약함 → 선호 → 온라인예약 → 나머지 → 자리없음(맨 아래)
+  function tierOf(s) {
+    var c = state.checks[s.id];
+    if (c && c.s === "open")   return 0;
+    if (c && c.s === "booked") return 1;
+    if (c && c.s === "none")   return 5;
+    if (isFav(s))              return 2;
+    if (CC.hasRealtime(s))     return 3;
+    return 4;
+  }
   function sortedSites() {
     var arr = visibleSites().slice();
-    var d = state.start;
-    if (state.sort === "reco")        arr.sort(function (a, b) { return CC.score(b, d) - CC.score(a, d); });
+    var d = state.start, season = CC.seasonOf(d);
+    if (state.sort === "reco")        arr.sort(function (a, b) { return recoScore(b) - recoScore(a); });
     else if (state.sort === "near")   arr.sort(function (a, b) { return a.drive - b.drive; });
     else if (state.sort === "auto")   arr.sort(function (a, b) { return b.autoSite - a.autoSite; });
-    else if (state.sort === "season") arr.sort(function (a, b) { return CC.seasonFit(b, CC.seasonOf(d)) - CC.seasonFit(a, CC.seasonOf(d)) || CC.score(b, d) - CC.score(a, d); });
-    // 선호 → ⚡실시간예약 가능 → 나머지 (각 그룹 내 정렬 유지)
-    var fav = arr.filter(isFav);
-    var rest = arr.filter(function (s) { return !isFav(s); });
-    var live = rest.filter(function (s) { return CC.hasRealtime(s); });
-    var other = rest.filter(function (s) { return !CC.hasRealtime(s); });
-    return fav.concat(live, other);
+    else if (state.sort === "season") arr.sort(function (a, b) { return CC.seasonFit(b, season) - CC.seasonFit(a, season) || recoScore(b) - recoScore(a); });
+    // 확인상태·선호 계층으로 재배치 (같은 계층 내 위 정렬 유지 = 안정)
+    var tiers = [[], [], [], [], [], []];
+    arr.forEach(function (s) { tiers[tierOf(s)].push(s); });
+    return tiers[0].concat(tiers[1], tiers[2], tiers[3], tiers[4], tiers[5]);
   }
 
   function pill(text, cls) { return '<span class="pill ' + cls + '"><span class="dot"></span>' + text + '</span>'; }
@@ -106,6 +186,28 @@ window.CC = window.CC || {};
     });
   }
 
+  /* ---------- 빠른 날짜 프리셋 하이라이트 ---------- */
+  function renderPresets() {
+    var cur = activePreset();
+    Array.prototype.forEach.call(document.querySelectorAll("[data-preset]"), function (b) {
+      var on = b.getAttribute("data-preset") === cur;
+      b.classList.toggle("on", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  }
+
+  /* ---------- 날씨 안내 (예보 신뢰도 정직 표시) ---------- */
+  function renderWeatherNote() {
+    var el = $("wxNote"); if (!el) return;
+    var m = state.weatherMode, html = "", cls = "";
+    if (m === "loading")       { html = '⛅ 이 기간 <b>실제 날씨·바람</b>을 불러오는 중…'; cls = "load"; }
+    else if (m === "forecast") { html = '💨 <b>' + periodTxt() + '</b> 실제 예보 반영 — <b>비·바람 나쁜 곳은 아래로</b> 내렸어요. <span class="muted-note">캠핑엔 바람이 제일 중요해 강풍은 크게 감점합니다.</span>'; cls = "ok"; }
+    else if (m === "far")      { html = '📅 <b>' + periodTxt() + '</b>은 날씨 예보 범위(약 16일) 밖이에요. 지금은 <b>계절 특성</b>으로 추천하고, <b>D-16부터 실제 날씨·바람</b>으로 다시 정렬해 드려요.'; cls = "far"; }
+    else if (m === "fail")     { html = '⚠️ 날씨를 불러오지 못했어요. 잠시 후 날짜를 다시 선택해 보세요.'; cls = "fail"; }
+    el.className = "wx-note " + cls;
+    el.innerHTML = html;
+  }
+
   /* ---------- 계절 배너 ---------- */
   function renderBanner() {
     var s = CC.SEASON[CC.seasonOf(state.start)];
@@ -129,13 +231,14 @@ window.CC = window.CC || {};
       return;
     }
     picks.forEach(function (s) {
+      var w = (state.weatherMode === "forecast") ? state.weather[s.id] : null;
       var c = document.createElement("button");
       c.className = "cur-card";
       c.innerHTML =
         '<div class="cur-thumb" style="background:' + CC.thumbBg(s) + '">' + CC.thumbFor(s) + (isFav(s) ? '<span class="cur-fav">⭐</span>' : '') + '</div>' +
         '<div class="cur-b"><div class="ct">' + esc(s.name) + '</div>' +
         '<div class="cr">' + CC.SEASON[season].emoji + ' ' + esc(CC.fitReason(s, season)) + '</div>' +
-        '<div class="cm">' + esc(s.region) + ' · 🚗 ' + CC.driveTxt(s.drive) + '</div></div>';
+        '<div class="cm">' + esc(s.region) + ' · 🚗 ' + CC.driveTxt(s.drive) + (w ? ' · ' + CC.wxText(w) : '') + '</div></div>';
       c.onclick = function () { openDetail(s.id); };
       row.appendChild(c);
     });
@@ -156,11 +259,18 @@ window.CC = window.CC || {};
 
     arr.forEach(function (s, i) {
       var fav = isFav(s);
+      var chk = state.checks[s.id];
       var reason = CC.fitReason(s, season);
       var fit = CC.seasonFit(s, season) >= 1;
       var kid = CC.kidPoints(s).length > 0;
+      var w = (state.weatherMode === "forecast") ? state.weather[s.id] : null;
+      var rl = CC.reserveLink(s);
 
       var badges = "";
+      if (w) {
+        badges += '<span class="pill wx ' + CC.wxClass(w) + '">' + CC.wxText(w) + '</span>';
+        badges += '<span class="pill wind ' + CC.windClass(w) + '">' + CC.windText(w) + (w.windSev >= 3 ? ' ⚠' : '') + '</span>';
+      }
       if (fav) badges += '<span class="pill fav">⭐ 선호</span>';
       if (fit && reason) badges += '<span class="pill acc">' + CC.SEASON[season].emoji + ' ' + esc(reason) + '</span>';
       if (kid) badges += pill("👨‍👩‍👧 아이 좋아요", "kid");
@@ -168,9 +278,21 @@ window.CC = window.CC || {};
       if (CC.hasRealtime(s)) badges += pill("🟢 온라인예약", "rt");
 
       var autoTxt = s.autoSite > 0 ? ("오토 " + s.autoSite + "면") : "오토캠핑";
+      var openLabel = rl.calendar ? "🗓️ 예약 열기" : (rl.direct ? "🔗 예약처" : "🔍 예약 검색");
+      var trayChk = ["open", "none", "booked"].map(function (st) {
+        var on = chk && chk.s === st;
+        return '<button class="chk chk-' + st + (on ? ' on' : '') + '" data-chk="' + s.id + '" data-st="' + st + '" title="' + CHK[st].t + '">' + CHK[st].s + '</button>';
+      }).join("");
+      var tray =
+        '<div class="sc-tray">' +
+          '<a class="tray-open" href="' + esc(rl.url) + '" target="_blank" rel="noopener">' + openLabel + ' ↗</a>' +
+          '<span class="tray-chk">' + trayChk + '</span>' +
+          (chk ? '<span class="tray-when">' + relDay(chk.d) + '</span>' : '') +
+        '</div>';
 
+      var cState = chk ? (chk.s === "none" ? " checkno" : (chk.s === "booked" ? " checkbk" : " checkon")) : "";
       var card = document.createElement("div");
-      card.className = "site-card" + (fav ? " fav" : "");
+      card.className = "site-card" + (fav ? " fav" : "") + cState;
       card.setAttribute("role", "button");
       card.setAttribute("tabindex", "0");
       card.setAttribute("aria-label", s.name + " 상세 보기");
@@ -187,6 +309,7 @@ window.CC = window.CC || {};
           '</div>' +
           '<div class="sc-meta"><span>' + esc(s.region) + '</span><span class="sep">·</span><span>' + autoTxt + '</span></div>' +
           '<div class="sc-badges">' + badges + '</div>' +
+          tray +
         '</div>';
 
       card.onclick = function () { openDetail(s.id); };
@@ -194,11 +317,18 @@ window.CC = window.CC || {};
       var fb = card.querySelector(".fav-btn");
       fb.onclick = function (e) { e.stopPropagation(); toggleFav(s.id); };
       fb.onkeydown = function (e) { if (e.key === "Enter" || e.key === " ") { e.stopPropagation(); } };
+      // 예약 열기: 카드 상세가 열리지 않도록
+      var to = card.querySelector(".tray-open");
+      if (to) to.addEventListener("click", function (e) { e.stopPropagation(); });
+      // 자리 확인 버튼 (있음/없음/예약)
+      Array.prototype.forEach.call(card.querySelectorAll(".chk"), function (b) {
+        b.addEventListener("click", function (e) { e.stopPropagation(); toggleCheck(b.getAttribute("data-chk"), b.getAttribute("data-st")); });
+      });
       list.appendChild(card);
     });
   }
 
-  function render() { renderRegions(); renderBanner(); renderCuration(); renderList(); }
+  function render() { renderPresets(); renderRegions(); renderBanner(); renderWeatherNote(); renderCuration(); renderList(); }
 
   /* ---------- 상세 시트 ---------- */
   function openDetail(id) {
@@ -210,6 +340,8 @@ window.CC = window.CC || {};
     var fav = isFav(s);
     var kp = CC.kidPoints(s);
     var rl = CC.reserveLink(s);
+    var w = (state.weatherMode === "forecast") ? state.weather[s.id] : null;
+    var chk = state.checks[s.id];
 
     var heroImg = s.img
       ? '<img class="hero-img" src="' + esc(s.img) + '" alt="" onerror="this.remove()">'
@@ -225,6 +357,35 @@ window.CC = window.CC || {};
     if (s.tel) contact.push('📞 <a href="tel:' + esc(s.tel) + '">' + esc(s.tel) + '</a>');
     if (home) contact.push('<a href="' + esc(home) + '" target="_blank" rel="noopener">홈페이지 ↗</a>');
     var contactHtml = contact.length ? '<div class="contact-line">' + contact.join(' · ') + '</div>' : '';
+
+    // 날씨·바람 상세 (예보 신뢰구간에서만) / 예보 밖이면 정직하게 안내
+    var wxBlock = "";
+    if (w) {
+      var tip = w.windSev >= 2 ? '<b>바람이 강해요</b> — 타프·텐트 설영에 주의하세요'
+              : (w.pop >= 60 ? '<b>비 올 확률이 높아요</b> — 우천 대비 필요'
+              : '캠핑하기 무난한 날씨예요');
+      wxBlock =
+        '<div class="wx-detail ' + CC.wxClass(w) + '">' +
+          '<div class="wxd-main">' + w.emoji + ' <b>' + w.tmax + '°</b><span class="wxd-min"> / ' + w.tmin + '°</span> · ' + esc(w.label) + '</div>' +
+          '<div class="wxd-sub">' +
+            '<span class="chip ' + CC.wxClass(w) + '">☔ 비 ' + w.pop + '%</span>' +
+            '<span class="chip ' + CC.windClass(w) + '">💨 바람 ' + w.wind + 'm/s' + (w.gust >= w.wind + 3 ? ' · 돌풍 ' + w.gust : '') + ' · ' + CC.WIND_LABEL[w.windSev] + '</span>' +
+          '</div>' +
+          '<div class="wxd-note">' + periodTxt() + ' 실제 예보 · ' + tip + '</div>' +
+        '</div>';
+    } else if (state.weatherMode === "far") {
+      wxBlock = '<div class="wx-detail far">📅 <b>' + periodTxt() + '</b>은 날씨 예보 범위(약 16일) 밖이에요. 지금은 계절 특성으로 판단하고, D-16부터 실제 날씨·바람이 표시됩니다.</div>';
+    }
+
+    // 자리 확인 추적 (있음/없음/예약)
+    var chkRow =
+      '<div class="chk-detail"><span class="cd-label">여기 자리 확인했나요?</span><div class="cd-btns">' +
+      ["open", "none", "booked"].map(function (st) {
+        var on = chk && chk.s === st;
+        return '<button class="chk chk-' + st + (on ? ' on' : '') + '" data-st="' + st + '">' + CHK[st].t + '</button>';
+      }).join("") +
+      '</div>' + (chk ? '<span class="cd-when">' + relDay(chk.d) + ' 표시함</span>' : '') + '</div>';
+
     var srcNote;
     if (rl.calendar) {
       srcNote = '🗓️ <b>' + periodTxt() + '</b> · 아래 <b>예약 캘린더 열기</b>를 누르면 예약 사이트에서 이 기간 <b>실시간 빈자리</b>를 바로 확인·예약할 수 있어요. <span class="muted-note">(대시보드가 자리를 직접 조회하진 않아요)</span>';
@@ -248,9 +409,11 @@ window.CC = window.CC || {};
           ? '<div class="season-note fit">' + CC.SEASON[season].emoji + ' ' + CC.SEASON[season].label + ' 추천 — ' + esc(reason) + '</div>'
           : '<div class="season-note">이 계절(' + CC.SEASON[season].label + ')엔 우선 추천 대상은 아니에요.</div>') +
         (kp.length ? '<div class="kid-note">👨‍👩‍👧 아이 좋은 곳 — ' + esc(kp.join(" · ")) + '</div>' : '') +
+        wxBlock +
         '<div class="blk-h">시설 · 환경</div>' +
         '<div class="tagrow">' + (s.tags.length ? s.tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join("") : '<span class="tag">정보 준비중</span>') + '</div>' +
         '<div class="src-note">' + srcNote + '</div>' +
+        chkRow +
         contactHtml +
         '<div class="cta-row">' + actions + '</div>' +
         '<div class="cta-row second"><a class="cta ghost" href="' + esc(CC.mapLink(s)) + '" target="_blank" rel="noopener">🧭 김포에서 길찾기</a></div>' +
@@ -258,6 +421,9 @@ window.CC = window.CC || {};
 
     $("sheetClose").onclick = closeSheet;
     $("sheetFav").onclick = function () { toggleFav(s.id); openDetail(s.id); };
+    Array.prototype.forEach.call($("sheet").querySelectorAll(".chk-detail .chk"), function (b) {
+      b.onclick = function () { toggleCheck(s.id, b.getAttribute("data-st")); openDetail(s.id); };
+    });
 
     $("backdrop").classList.add("show");
     var sh = $("sheet"); sh.classList.add("show"); sh.scrollTop = 0;
@@ -289,24 +455,36 @@ window.CC = window.CC || {};
     if (!e.target.value) { e.target.value = state.start; return; }
     state.start = e.target.value;
     if (ymdToDate(state.end) <= ymdToDate(state.start)) state.end = addDays(state.start, 1);  // 최소 1박 보장
-    syncDateInputs(); render();
+    syncDateInputs(); render(); fetchWeather();
   }
   function onEndChange(e) {
     if (!e.target.value) { e.target.value = state.end; return; }
     state.end = e.target.value;
     if (ymdToDate(state.end) <= ymdToDate(state.start)) state.start = addDays(state.end, -1);
-    syncDateInputs(); render();
+    syncDateInputs(); render(); fetchWeather();
+  }
+  function applyPreset(k) {
+    var p = PRESETS[k] && PRESETS[k](); if (!p) return;
+    state.start = p.start; state.end = p.end;
+    syncDateInputs(); render(); fetchWeather();
   }
 
   function init() {
     loadFav();
+    loadChecks();
+    var wk = PRESETS.week();            // 기본 = 이번 주말 (예보 범위 안)
+    state.start = wk.start; state.end = wk.end;
     $("startInp").addEventListener("change", onStartChange);
     $("endInp").addEventListener("change", onEndChange);
     $("sortSel").addEventListener("change", function (e) { state.sort = e.target.value; renderList(); });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-preset]"), function (b) {
+      b.addEventListener("click", function () { applyPreset(b.getAttribute("data-preset")); });
+    });
     $("backdrop").addEventListener("click", closeSheet);
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeSheet(); });
     syncDateInputs();
     render();
+    fetchWeather();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);

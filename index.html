@@ -14,10 +14,16 @@
       <span class="brand-txt"><b>캠핑캐치</b><span>김포 3시간 이내 · 오토캠핑 · 실데이터</span></span>
     </div>
   </header>
-  <div class="proto-note">실데이터: 고캠핑(한국관광공사) 공개 API · <b>가격·실시간 자리·후기</b>는 예약처에서 확인</div>
+  <div class="proto-note">실데이터: 고캠핑(한국관광공사) API + <b>Open-Meteo 날씨·바람</b> · 가격·실시간 자리는 예약처 확인</div>
 
   <main class="wrap">
     <div class="controls">
+      <div class="preset-row" id="presetRow">
+        <span class="preset-lbl">언제 갈까요?</span>
+        <button class="qbtn" data-preset="tmr" aria-pressed="false">내일</button>
+        <button class="qbtn" data-preset="week" aria-pressed="false">이번 주말</button>
+        <button class="qbtn" data-preset="next" aria-pressed="false">다음 주말</button>
+      </div>
       <div class="ctrl-row">
         <div class="field">
           <label for="startInp">시작일</label>
@@ -46,6 +52,7 @@
     </div>
 
     <div class="season-banner" id="seasonBanner"></div>
+    <div class="wx-note" id="wxNote"></div>
 
     <div class="sec-h"><h2 id="curTitle">이 계절 추천</h2><span class="cnt">시즌 맞춤</span></div>
     <div class="cur-row" id="curRow"></div>
@@ -54,8 +61,8 @@
     <div class="list" id="list"></div>
 
     <footer>
-      캠핑캐치 · 데이터 출처: 고캠핑(한국관광공사) 공개 API (이용허락범위 제한 없음)<br>
-      가격·실시간 자리·후기는 고캠핑 정보에 없어 예약처/네이버로 연결합니다. 후기·실시간 자리 연동은 다음 단계 과제입니다.
+      데이터: 고캠핑(한국관광공사) 공개 API (이용허락범위 제한 없음) · 날씨: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> (CC BY 4.0, 비상업)<br>
+      날씨·바람은 예보 범위(약 16일) 안에서만 표시·정렬에 반영합니다. 가격·실시간 자리는 예약처(캠핏·네이버 등)에서 확인하세요.
     </footer>
   </main>
 
@@ -65,6 +72,7 @@
 
   <script src="js/config.js"></script>
   <script src="js/sites.js"></script>
+  <script src="js/links.js"></script>
   <script src="js/logic.js"></script>
   <script src="js/app.js"></script>
 </body>

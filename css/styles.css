@@ -214,6 +214,69 @@ a.cta{ text-decoration:none; display:inline-flex; align-items:center; justify-co
 
 footer{ text-align:center; color:var(--muted); font-size:.74rem; padding:30px 16px 44px; line-height:1.7; }
 
+/* ---------- 빠른 날짜 프리셋 ---------- */
+.preset-row{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+.preset-lbl{ font-size:.74rem; font-weight:800; color:var(--ink-2); margin-right:2px; }
+.qbtn{ font-size:.82rem; font-weight:800; padding:9px 15px; border-radius:999px; border:1.5px solid var(--line-2); background:var(--surface); color:var(--ink-2); transition:background .12s ease, border-color .12s ease, color .12s ease; }
+.qbtn:hover{ border-color:var(--accent); color:var(--ink); }
+.qbtn.on{ background:var(--accent); border-color:var(--accent); color:var(--accent-ink); box-shadow:0 2px 8px color-mix(in srgb,var(--accent) 32%, transparent); }
+
+/* ---------- 날씨 안내 배너 ---------- */
+.wx-note{ margin-top:10px; padding:10px 13px; border-radius:12px; font-size:.8rem; font-weight:600; line-height:1.5; }
+.wx-note:empty{ display:none; }
+.wx-note b{ font-weight:800; }
+.wx-note .muted-note{ font-weight:400; opacity:.85; }
+.wx-note.load{ background:var(--surface-2); color:var(--ink-2); border:1px solid var(--line); }
+.wx-note.ok{ background:var(--good-bg); color:var(--good); }
+.wx-note.far{ background:var(--warn-bg); color:var(--warn); }
+.wx-note.fail{ background:var(--crit-bg); color:var(--crit); }
+
+/* ---------- 날씨/바람 pill (카드) ---------- */
+.pill.wx.good{ background:var(--good-bg); color:var(--good); }
+.pill.wx.mid{ background:var(--warn-bg); color:var(--warn); }
+.pill.wx.bad{ background:var(--crit-bg); color:var(--crit); }
+.pill.wind.good{ background:var(--surface-3); color:var(--ink-2); }
+.pill.wind.mid{ background:var(--warn-bg); color:var(--warn); }
+.pill.wind.bad{ background:var(--crit-bg); color:var(--crit); font-weight:800; }
+
+/* ---------- 카드 확인 트레이 ---------- */
+.sc-tray{ display:flex; align-items:center; gap:7px; flex-wrap:wrap; margin-top:9px; padding-top:9px; border-top:1px dashed var(--line); }
+.tray-open{ font-size:.78rem; font-weight:800; text-decoration:none; padding:6px 11px; border-radius:9px; background:var(--brand); color:#fff; white-space:nowrap; }
+.tray-open:hover{ background:var(--brand-2); }
+.tray-chk{ display:inline-flex; gap:5px; margin-left:auto; }
+.chk{ font-size:.74rem; font-weight:700; padding:6px 10px; border-radius:8px; border:1.5px solid var(--line-2); background:var(--surface); color:var(--muted); line-height:1; transition:background .12s ease, border-color .12s ease, color .12s ease; }
+.chk:hover{ border-color:var(--ink-2); color:var(--ink-2); }
+.chk.chk-open.on{ background:var(--good); border-color:var(--good); color:#fff; }
+.chk.chk-none.on{ background:var(--crit); border-color:var(--crit); color:#fff; }
+.chk.chk-booked.on{ background:var(--brand); border-color:var(--brand); color:#fff; }
+.tray-when{ font-size:.68rem; color:var(--muted); font-family:var(--mono); }
+
+/* 확인 상태별 카드 강조 */
+.site-card.checkno{ opacity:.62; }
+.site-card.checkno .sc-thumb{ filter:grayscale(.5); }
+.site-card.checkbk{ border-color:color-mix(in srgb,var(--brand) 55%, var(--line)); box-shadow:0 0 0 1px color-mix(in srgb,var(--brand) 30%, transparent), var(--shadow); }
+.site-card.checkon{ border-color:color-mix(in srgb,var(--good) 60%, var(--line)); box-shadow:0 0 0 1px color-mix(in srgb,var(--good) 35%, transparent), var(--shadow); }
+
+/* ---------- 상세: 날씨/바람 블록 ---------- */
+.wx-detail{ margin-top:14px; padding:13px 15px; border-radius:13px; border:1px solid var(--line); background:var(--surface-2); }
+.wx-detail.good{ background:var(--good-bg); border-color:transparent; }
+.wx-detail.mid{ background:var(--warn-bg); border-color:transparent; }
+.wx-detail.bad{ background:var(--crit-bg); border-color:transparent; }
+.wx-detail.far{ font-size:.84rem; color:var(--warn); background:var(--warn-bg); border-color:transparent; line-height:1.5; }
+.wxd-main{ font-size:1.05rem; font-weight:800; }
+.wxd-main .wxd-min{ color:var(--muted); font-weight:600; font-size:.9rem; }
+.wxd-sub{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+.wxd-sub .chip{ font-size:.78rem; font-weight:700; padding:5px 10px; border-radius:8px; background:color-mix(in srgb,var(--surface) 55%, transparent); }
+.wxd-sub .chip.good{ color:var(--good); } .wxd-sub .chip.mid{ color:var(--warn); } .wxd-sub .chip.bad{ color:var(--crit); }
+.wxd-note{ margin-top:9px; font-size:.8rem; color:var(--ink-2); line-height:1.5; }
+
+/* ---------- 상세: 자리 확인 추적 ---------- */
+.chk-detail{ margin-top:14px; padding:12px 14px; border-radius:13px; background:var(--surface-2); border:1px solid var(--line); }
+.cd-label{ display:block; font-size:.8rem; font-weight:700; color:var(--ink-2); margin-bottom:9px; }
+.cd-btns{ display:flex; gap:8px; }
+.chk-detail .chk{ flex:1; padding:10px; font-size:.82rem; }
+.cd-when{ display:block; margin-top:9px; font-size:.72rem; color:var(--muted); font-family:var(--mono); }
+
 /* ---------- toast ---------- */
 .toast{ position:fixed; left:50%; bottom:26px; transform:translate(-50%,20px); background:var(--ink); color:var(--bg); font-size:.84rem; font-weight:600; padding:11px 18px; border-radius:12px; box-shadow:var(--shadow-lg); opacity:0; pointer-events:none; transition:opacity .2s ease, transform .2s ease; z-index:60; max-width:88vw; text-align:center; }
 .toast.show{ opacity:1; transform:translate(-50%,0); }
