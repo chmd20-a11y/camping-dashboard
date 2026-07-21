@@ -13,7 +13,8 @@ window.CC = window.CC || {};
   var FAV_KEY = "cc_favorites";
 
   var state = {
-    date: "2026-08-15",   // 계절 추천 기준일 (여름이 바로 보이도록)
+    start: "2026-08-15",  // 캠핑 기간 시작 (계절 추천 기준)
+    end: "2026-08-16",    // 캠핑 기간 종료
     sort: "reco",
     regions: { "파주": false, "연천": false, "포천": false, "강원": false },  // 기본: 미선택 = 전체
     favorites: {}
@@ -22,6 +23,17 @@ window.CC = window.CC || {};
   var $ = function (id) { return document.getElementById(id); };
   var isFav = function (s) { return !!state.favorites[s.id]; };
   var esc = function (t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); };
+
+  /* ---------- 캠핑 기간 헬퍼 ---------- */
+  function ymdToDate(s) { return new Date(s + "T00:00:00"); }
+  function fmtYmd(d) { var y = d.getFullYear(), m = d.getMonth() + 1, dd = d.getDate(); return y + "-" + (m < 10 ? "0" : "") + m + "-" + (dd < 10 ? "0" : "") + dd; }
+  function addDays(ymd, n) { var d = ymdToDate(ymd); d.setDate(d.getDate() + n); return fmtYmd(d); }
+  function nightsCount() { return Math.max(1, Math.round((ymdToDate(state.end) - ymdToDate(state.start)) / 86400000)); }
+  function periodTxt() {
+    var a = ymdToDate(state.start), b = ymdToDate(state.end), n = nightsCount();
+    var f = function (d) { return (d.getMonth() + 1) + "/" + d.getDate(); };
+    return f(a) + " → " + f(b) + " · " + n + "박 " + (n + 1) + "일";
+  }
 
   /* ---------- 선호(localStorage) ---------- */
   function loadFav() {
@@ -52,7 +64,7 @@ window.CC = window.CC || {};
   }
   function sortedSites() {
     var arr = visibleSites().slice();
-    var d = state.date;
+    var d = state.start;
     if (state.sort === "reco")        arr.sort(function (a, b) { return CC.score(b, d) - CC.score(a, d); });
     else if (state.sort === "near")   arr.sort(function (a, b) { return a.drive - b.drive; });
     else if (state.sort === "auto")   arr.sort(function (a, b) { return b.autoSite - a.autoSite; });
@@ -92,19 +104,19 @@ window.CC = window.CC || {};
 
   /* ---------- 계절 배너 ---------- */
   function renderBanner() {
-    var s = CC.SEASON[CC.seasonOf(state.date)];
+    var s = CC.SEASON[CC.seasonOf(state.start)];
     $("seasonBanner").innerHTML =
       '<span class="se">' + s.emoji + '</span>' +
-      '<div><div class="sb-t">' + s.label + ' 시즌 추천</div>' +
-      '<div class="sb-d">지금은 <b>' + s.desc + '</b>을(를) 우선 추천합니다.</div></div>';
+      '<div><div class="sb-t">' + s.label + ' 시즌 · ' + periodTxt() + '</div>' +
+      '<div class="sb-d"><b>' + s.desc + '</b>을(를) 우선 추천합니다.</div></div>';
     $("curTitle").textContent = s.emoji + " 이 계절(" + s.label + ") 추천";
   }
 
   /* ---------- 계절 큐레이션 ---------- */
   function renderCuration() {
-    var season = CC.seasonOf(state.date);
+    var season = CC.seasonOf(state.start);
     var picks = visibleSites().slice().sort(function (a, b) {
-      return (CC.seasonFit(b, season) - CC.seasonFit(a, season)) || (CC.score(b, state.date) - CC.score(a, state.date));
+      return (CC.seasonFit(b, season) - CC.seasonFit(a, season)) || (CC.score(b, state.start) - CC.score(a, state.start));
     }).filter(function (s) { return CC.seasonFit(s, season) > 0; }).slice(0, 6);
 
     var row = $("curRow"); row.innerHTML = "";
@@ -128,7 +140,7 @@ window.CC = window.CC || {};
   /* ---------- 랭킹 목록 ---------- */
   function renderList() {
     var arr = sortedSites();
-    var season = CC.seasonOf(state.date);
+    var season = CC.seasonOf(state.start);
     var list = $("list"); list.innerHTML = "";
     $("resultCount").textContent = arr.length + "곳 · " + CC.SEASON[season].label + " 추천순";
 
@@ -187,7 +199,7 @@ window.CC = window.CC || {};
   function openDetail(id) {
     var s = CC.SITES.filter(function (x) { return x.id === id; })[0];
     if (!s) return;
-    var season = CC.seasonOf(state.date);
+    var season = CC.seasonOf(state.start);
     var reason = CC.fitReason(s, season);
     var fit = CC.seasonFit(s, season) >= 1;
     var fav = isFav(s);
@@ -219,7 +231,7 @@ window.CC = window.CC || {};
         (kp.length ? '<div class="kid-note">👨‍👩‍👧 아이 좋은 곳 — ' + esc(kp.join(" · ")) + '</div>' : '') +
         '<div class="blk-h">시설 · 환경</div>' +
         '<div class="tagrow">' + (s.tags.length ? s.tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join("") : '<span class="tag">정보 준비중</span>') + '</div>' +
-        '<div class="src-note">💡 <b>가격·실시간 자리·후기</b>는 고캠핑 정보엔 없어요. 예약처에서 최종 확인하세요.</div>' +
+        '<div class="src-note">🗓️ 선택 기간 <b>' + periodTxt() + '</b> · 이 기간의 실시간 빈자리·가격·후기는 고캠핑 정보엔 없어요. 아래 예약처에서 확인하세요.</div>' +
         '<div class="cta-row">' + actions + '</div>' +
         '<div class="cta-row second"><a class="cta ghost" href="' + esc(CC.mapLink(s)) + '" target="_blank" rel="noopener">🧭 김포에서 길찾기</a></div>' +
       '</div>';
@@ -247,12 +259,33 @@ window.CC = window.CC || {};
   }
 
   /* ---------- 초기화 ---------- */
+  function syncDateInputs() {
+    $("startInp").value = state.start;
+    $("endInp").value = state.end;
+    $("endInp").min = addDays(state.start, 1);   // 종료일은 시작일 다음날부터
+    $("startInp").max = state.end;
+  }
+  function onStartChange(e) {
+    if (!e.target.value) { e.target.value = state.start; return; }
+    state.start = e.target.value;
+    if (ymdToDate(state.end) <= ymdToDate(state.start)) state.end = addDays(state.start, 1);  // 최소 1박 보장
+    syncDateInputs(); render();
+  }
+  function onEndChange(e) {
+    if (!e.target.value) { e.target.value = state.end; return; }
+    state.end = e.target.value;
+    if (ymdToDate(state.end) <= ymdToDate(state.start)) state.start = addDays(state.end, -1);
+    syncDateInputs(); render();
+  }
+
   function init() {
     loadFav();
-    $("dateInp").addEventListener("change", function (e) { if (e.target.value) { state.date = e.target.value; render(); } });
+    $("startInp").addEventListener("change", onStartChange);
+    $("endInp").addEventListener("change", onEndChange);
     $("sortSel").addEventListener("change", function (e) { state.sort = e.target.value; renderList(); });
     $("backdrop").addEventListener("click", closeSheet);
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeSheet(); });
+    syncDateInputs();
     render();
   }
 
