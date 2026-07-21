@@ -203,6 +203,10 @@ a.cta{ text-decoration:none; display:inline-flex; align-items:center; justify-co
 .cta-row{ position:static; background:none; margin-top:16px; }
 .cta-row.second{ margin-top:9px; }
 .cta.ghost{ background:transparent; border:1px solid var(--line-2); color:var(--ink-2); width:100%; }
+.pill.rt{ background:var(--good); color:#fff; }
+.contact-line{ margin-top:12px; font-size:.84rem; color:var(--ink-2); display:flex; flex-wrap:wrap; gap:4px 12px; align-items:center; }
+.contact-line a{ color:var(--brand); font-weight:700; text-decoration:none; }
+.contact-line b{ color:var(--ink); }
 
 .empty{ text-align:center; padding:40px 20px; color:var(--muted); }
 .empty .ee{ font-size:2rem; }

@@ -69,8 +69,12 @@ window.CC = window.CC || {};
     else if (state.sort === "near")   arr.sort(function (a, b) { return a.drive - b.drive; });
     else if (state.sort === "auto")   arr.sort(function (a, b) { return b.autoSite - a.autoSite; });
     else if (state.sort === "season") arr.sort(function (a, b) { return CC.seasonFit(b, CC.seasonOf(d)) - CC.seasonFit(a, CC.seasonOf(d)) || CC.score(b, d) - CC.score(a, d); });
-    var fav = arr.filter(isFav), rest = arr.filter(function (s) { return !isFav(s); });
-    return fav.concat(rest);
+    // 선호 → ⚡실시간예약 가능 → 나머지 (각 그룹 내 정렬 유지)
+    var fav = arr.filter(isFav);
+    var rest = arr.filter(function (s) { return !isFav(s); });
+    var live = rest.filter(function (s) { return CC.hasRealtime(s); });
+    var other = rest.filter(function (s) { return !CC.hasRealtime(s); });
+    return fav.concat(live, other);
   }
 
   function pill(text, cls) { return '<span class="pill ' + cls + '"><span class="dot"></span>' + text + '</span>'; }
@@ -142,7 +146,8 @@ window.CC = window.CC || {};
     var arr = sortedSites();
     var season = CC.seasonOf(state.start);
     var list = $("list"); list.innerHTML = "";
-    $("resultCount").textContent = arr.length + "곳 · " + CC.SEASON[season].label + " 추천순";
+    var liveN = arr.filter(function (s) { return CC.hasRealtime(s); }).length;
+    $("resultCount").textContent = arr.length + "곳 · ⚡실시간 " + liveN + " · " + CC.SEASON[season].label + " 추천순";
 
     if (!arr.length) {
       list.innerHTML = '<div class="empty"><div class="ee">🏕️</div><p>선택한 지역에 표시할 오토캠핑장이 없어요.<br>지역을 더 선택해 보세요.</p></div>';
@@ -160,7 +165,7 @@ window.CC = window.CC || {};
       if (fit && reason) badges += '<span class="pill acc">' + CC.SEASON[season].emoji + ' ' + esc(reason) + '</span>';
       if (kid) badges += pill("👨‍👩‍👧 아이 좋아요", "kid");
       if (s.drive <= 40) badges += pill("가까움", "brand");
-      if (s.resveUrl) badges += pill("온라인예약", "good");
+      if (CC.hasRealtime(s)) badges += pill("⚡ 실시간예약", "rt");
 
       var autoTxt = s.autoSite > 0 ? ("오토 " + s.autoSite + "면") : "오토캠핑";
 
@@ -210,10 +215,16 @@ window.CC = window.CC || {};
       ? '<img class="hero-img" src="' + esc(s.img) + '" alt="" onerror="this.remove()">'
       : '';
 
-    var actions = "";
-    if (rl) actions += '<a class="cta pri" href="' + esc(rl.url) + '" target="_blank" rel="noopener">' + rl.label + ' ↗</a>';
-    else if (s.tel) actions += '<a class="cta pri" href="tel:' + esc(s.tel) + '">전화 예약 ' + esc(s.tel) + '</a>';
-    actions += '<a class="cta sec" href="' + esc(CC.reviewLink(s)) + '" target="_blank" rel="noopener">네이버 후기</a>';
+    var hint = CC.reserveHint(s);
+    var home = CC.homeLink(s);
+    var actions =
+      '<a class="cta pri" href="' + esc(rl.url) + '" target="_blank" rel="noopener">' + rl.label + ' ↗</a>' +
+      '<a class="cta sec" href="' + esc(CC.reviewLink(s)) + '" target="_blank" rel="noopener">네이버 후기</a>';
+    var contact = [];
+    if (hint) contact.push('예약처: <b>' + esc(hint) + '</b>');
+    if (s.tel) contact.push('📞 <a href="tel:' + esc(s.tel) + '">' + esc(s.tel) + '</a>');
+    if (home) contact.push('<a href="' + esc(home) + '" target="_blank" rel="noopener">홈페이지 ↗</a>');
+    var contactHtml = contact.length ? '<div class="contact-line">' + contact.join(' · ') + '</div>' : '';
 
     $("sheet").innerHTML =
       '<div class="sheet-grab"></div>' +
@@ -232,6 +243,7 @@ window.CC = window.CC || {};
         '<div class="blk-h">시설 · 환경</div>' +
         '<div class="tagrow">' + (s.tags.length ? s.tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join("") : '<span class="tag">정보 준비중</span>') + '</div>' +
         '<div class="src-note">🗓️ 선택 기간 <b>' + periodTxt() + '</b> · 이 기간의 실시간 빈자리·가격·후기는 고캠핑 정보엔 없어요. 아래 예약처에서 확인하세요.</div>' +
+        contactHtml +
         '<div class="cta-row">' + actions + '</div>' +
         '<div class="cta-row second"><a class="cta ghost" href="' + esc(CC.mapLink(s)) + '" target="_blank" rel="noopener">🧭 김포에서 길찾기</a></div>' +
       '</div>';

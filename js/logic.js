@@ -55,12 +55,37 @@ window.CC = window.CC || {};
     return h + "시간" + (m ? (" " + m + "분") : "");
   };
 
-  /* 예약처로 이동할 링크 (예약URL > 홈페이지 > 없음) */
-  CC.reserveLink = function (s) {
-    if (s.resveUrl) return { url: s.resveUrl, label: "예약처로 이동", kind: "resve" };
-    if (s.homepage) return { url: s.homepage, label: "홈페이지 열기", kind: "home" };
-    return null;
+  /* 문자열이 실제 URL이면 정규화해 반환, 아니면 "" (고캠핑 데이터엔 "캠핏 or 네이버" 같은 텍스트가 섞여 있음) */
+  CC.normUrl = function (v) {
+    if (!v) return "";
+    v = String(v).trim();
+    if (!v) return "";
+    if (/^https?:\/\//i.test(v)) return v;
+    if (/^[\w.-]+\.[a-z]{2,}([\/?#]|$)/i.test(v)) return "https://" + v;  // 프로토콜 없는 도메인
+    return "";  // URL 아님(설명 텍스트 등)
   };
+
+  /* 예약 이동 링크 — 유효한 예약URL이 있으면 그곳, 없으면 네이버 '○○ 예약' 검색으로 대체 */
+  CC.reserveLink = function (s) {
+    var r = CC.normUrl(s.resveUrl);
+    if (r) return { url: r, label: "예약처로 이동", direct: true };
+    return {
+      url: "https://search.naver.com/search.naver?query=" + encodeURIComponent(s.name + " 예약"),
+      label: "예약 검색 (네이버)", direct: false
+    };
+  };
+
+  /* 예약URL이 URL이 아니라 설명 텍스트일 때 그 힌트(예: "캠핏 or 네이버") */
+  CC.reserveHint = function (s) {
+    var v = (s.resveUrl || "").replace(/\s+/g, " ").trim();
+    return (v && !CC.normUrl(v)) ? v : "";
+  };
+
+  /* 유효한 홈페이지 URL (없으면 "") */
+  CC.homeLink = function (s) { return CC.normUrl(s.homepage); };
+
+  /* 실시간 자리확인/온라인 예약 가능 = 유효한 예약URL이 있는 곳 */
+  CC.hasRealtime = function (s) { return !!CC.normUrl(s.resveUrl); };
 
   /* 네이버 후기 검색 링크 (실제 후기 확인용 링크아웃) */
   CC.reviewLink = function (s) {
