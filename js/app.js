@@ -447,9 +447,9 @@ window.CC = window.CC || {};
   /* ---------- 초기화 ---------- */
   function syncDateInputs() {
     $("startInp").value = state.start;
+    $("startInp").min = todayYmd();              // 지난 날짜만 막고, 미래는 자유롭게
     $("endInp").value = state.end;
     $("endInp").min = addDays(state.start, 1);   // 종료일은 시작일 다음날부터
-    $("startInp").max = state.end;
   }
   function onStartChange(e) {
     if (!e.target.value) { e.target.value = state.start; return; }
