@@ -189,6 +189,17 @@ select.inp{ padding-right:28px; background-image:linear-gradient(45deg,transpare
 .cta.sec{ background:var(--surface-2); color:var(--ink); border:1px solid var(--line-2); flex:0 0 auto; padding:13px 16px; }
 .cta.sec.on{ background:var(--warn); color:#fff; border-color:transparent; }
 
+/* ---- 실데이터 추가 스타일 ---- */
+.sc-dist{ font-family:var(--mono); font-weight:700; font-size:.82rem; color:var(--brand); white-space:nowrap; font-variant-numeric:tabular-nums; }
+.pill.kid{ background:var(--brand-soft); color:var(--brand); }
+.hero-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.intro{ margin:12px 0 0; font-size:.9rem; color:var(--ink-2); line-height:1.6; }
+.src-note{ margin-top:18px; padding:11px 13px; border-radius:12px; background:var(--warn-bg); color:var(--warn); font-size:.8rem; font-weight:600; line-height:1.5; }
+a.cta{ text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
+.cta-row{ position:static; background:none; margin-top:16px; }
+.cta-row.second{ margin-top:9px; }
+.cta.ghost{ background:transparent; border:1px solid var(--line-2); color:var(--ink-2); width:100%; }
+
 .empty{ text-align:center; padding:40px 20px; color:var(--muted); }
 .empty .ee{ font-size:2rem; }
 
