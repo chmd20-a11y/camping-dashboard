@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>캠핑캐치 — 김포 3시간 오토캠핑 랭킹</title>
+  <meta name="description" content="김포 기준 3시간 이내 오토캠핑장을 후기·자리·계절·가격으로 랭킹하는 대시보드">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="appbar">
+    <div class="appbar-in">
+      <span class="logo">⛺</span>
+      <span class="brand-txt"><b>캠핑캐치</b><span>김포 기준 · 3시간 이내 · 오토캠핑</span></span>
+    </div>
+  </header>
+  <div class="proto-note">프로토타입 · 예시 데모 데이터 (실제 후기·가격·자리 아님)</div>
+
+  <main class="wrap">
+    <div class="controls">
+      <div class="ctrl-row">
+        <div class="field">
+          <label for="dateInp">조회일</label>
+          <input class="inp" type="date" id="dateInp" value="2026-08-15">
+        </div>
+        <div class="field">
+          <label for="nightsSel">박수</label>
+          <select class="inp" id="nightsSel">
+            <option value="1">1박</option><option value="2">2박</option><option value="3">3박</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sortSel">정렬</label>
+          <select class="inp" id="sortSel">
+            <option value="reco">추천순 (후기+자리+계절)</option>
+            <option value="rating">후기 높은순</option>
+            <option value="near">가까운순</option>
+            <option value="price">가격 낮은순</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>유형</label>
+          <span class="fixed-chip">🚗 오토캠핑 고정</span>
+        </div>
+      </div>
+      <div class="region-row" id="regionRow"></div>
+    </div>
+
+    <div class="season-banner" id="seasonBanner"></div>
+
+    <div class="sec-h"><h2 id="curTitle">이 계절 추천</h2><span class="cnt">시즌 맞춤</span></div>
+    <div class="cur-row" id="curRow"></div>
+
+    <div class="results-head"><h2>오토캠핑 랭킹</h2><span class="rc" id="resultCount"></span></div>
+    <div class="list" id="list"></div>
+
+    <footer>
+      캠핑캐치 프로토타입 · 화면·상호작용 검증용 데모입니다.<br>
+      표시된 캠핑장명·후기·가격·자리 현황은 모두 <b>레이아웃 설명용 예시값</b>이며 실제 데이터가 아닙니다.
+    </footer>
+  </main>
+
+  <div class="backdrop" id="backdrop"></div>
+  <aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="캠핑장 상세"></aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/logic.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
