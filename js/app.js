@@ -147,7 +147,7 @@ window.CC = window.CC || {};
     var season = CC.seasonOf(state.start);
     var list = $("list"); list.innerHTML = "";
     var liveN = arr.filter(function (s) { return CC.hasRealtime(s); }).length;
-    $("resultCount").textContent = arr.length + "곳 · ⚡실시간 " + liveN + " · " + CC.SEASON[season].label + " 추천순";
+    $("resultCount").textContent = arr.length + "곳 · 온라인예약 " + liveN + " · " + CC.SEASON[season].label + " 추천순";
 
     if (!arr.length) {
       list.innerHTML = '<div class="empty"><div class="ee">🏕️</div><p>선택한 지역에 표시할 오토캠핑장이 없어요.<br>지역을 더 선택해 보세요.</p></div>';
@@ -165,7 +165,7 @@ window.CC = window.CC || {};
       if (fit && reason) badges += '<span class="pill acc">' + CC.SEASON[season].emoji + ' ' + esc(reason) + '</span>';
       if (kid) badges += pill("👨‍👩‍👧 아이 좋아요", "kid");
       if (s.drive <= 40) badges += pill("가까움", "brand");
-      if (CC.hasRealtime(s)) badges += pill("⚡ 실시간예약", "rt");
+      if (CC.hasRealtime(s)) badges += pill("🟢 온라인예약", "rt");
 
       var autoTxt = s.autoSite > 0 ? ("오토 " + s.autoSite + "면") : "오토캠핑";
 
@@ -225,6 +225,10 @@ window.CC = window.CC || {};
     if (s.tel) contact.push('📞 <a href="tel:' + esc(s.tel) + '">' + esc(s.tel) + '</a>');
     if (home) contact.push('<a href="' + esc(home) + '" target="_blank" rel="noopener">홈페이지 ↗</a>');
     var contactHtml = contact.length ? '<div class="contact-line">' + contact.join(' · ') + '</div>' : '';
+    var online = CC.hasRealtime(s);
+    var srcNote = online
+      ? '🗓️ 선택 기간 <b>' + periodTxt() + '</b> · 이 캠핑장은 <b>온라인 예약처</b>가 있어요. 아래 <b>예약처로 이동</b>에서 이 기간 실시간 빈자리·요금을 바로 확인·예약하세요. <span class="muted-note">(대시보드는 자리 정보를 직접 조회하지 않아요)</span>'
+      : '🗓️ 선택 기간 <b>' + periodTxt() + '</b> · 온라인 예약 링크가 없어요. <b>전화</b>나 <b>예약 검색(네이버)</b>로 자리·요금을 확인하세요.';
 
     $("sheet").innerHTML =
       '<div class="sheet-grab"></div>' +
@@ -242,7 +246,7 @@ window.CC = window.CC || {};
         (kp.length ? '<div class="kid-note">👨‍👩‍👧 아이 좋은 곳 — ' + esc(kp.join(" · ")) + '</div>' : '') +
         '<div class="blk-h">시설 · 환경</div>' +
         '<div class="tagrow">' + (s.tags.length ? s.tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join("") : '<span class="tag">정보 준비중</span>') + '</div>' +
-        '<div class="src-note">🗓️ 선택 기간 <b>' + periodTxt() + '</b> · 이 기간의 실시간 빈자리·가격·후기는 고캠핑 정보엔 없어요. 아래 예약처에서 확인하세요.</div>' +
+        '<div class="src-note">' + srcNote + '</div>' +
         contactHtml +
         '<div class="cta-row">' + actions + '</div>' +
         '<div class="cta-row second"><a class="cta ghost" href="' + esc(CC.mapLink(s)) + '" target="_blank" rel="noopener">🧭 김포에서 길찾기</a></div>' +
