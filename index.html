@@ -11,7 +11,7 @@
   <header class="appbar">
     <div class="appbar-in">
       <span class="logo">⛺</span>
-      <span class="brand-txt"><b>캠핑캐치</b><span>김포 기준 · 3시간 이내 · 오토캠핑</span></span>
+      <span class="brand-txt"><b>캠핑캐치</b><span>김포 3시간 이내 · 오토캠핑 · 가족캠핑</span></span>
     </div>
   </header>
   <div class="proto-note">프로토타입 · 예시 데모 데이터 (실제 후기·가격·자리 아님)</div>
@@ -39,12 +39,17 @@
           </select>
         </div>
         <div class="field">
-          <label>유형</label>
-          <span class="fixed-chip">🚗 오토캠핑 고정</span>
+          <label>고정 조건</label>
+          <div class="fixed-chips">
+            <span class="fixed-chip">🚗 오토캠핑</span>
+            <span class="fixed-chip fam">👨‍👩‍👧‍👦 가족캠핑</span>
+          </div>
         </div>
       </div>
       <div class="region-row" id="regionRow"></div>
     </div>
+
+    <div class="exclude-note" id="excludeNote" hidden></div>
 
     <div class="season-banner" id="seasonBanner"></div>
 

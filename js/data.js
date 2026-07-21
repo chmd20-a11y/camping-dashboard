@@ -13,19 +13,21 @@ window.CC = window.CC || {};
 (function (CC) {
   "use strict";
 
+/* family: 아이 동반 가족캠핑 가능 여부. false(노키즈존/커플 전용)는 목록에서 제외됨 */
 CC.SITES = [
-  { id:1,  name:"포천 계곡숲 오토캠핑장", region:"포천",     group:"포천", drive:80,  rating:4.9, reviews:412, wd:45000, we:58000, pk:72000, tags:["계곡","그늘","숲","물놀이","전기","개수대"] },
-  { id:2,  name:"홍천강 물놀이 오토캠핑", region:"강원 홍천", group:"강원", drive:100, rating:4.8, reviews:356, wd:50000, we:65000, pk:80000, tags:["물놀이","수영장","계곡","강변","전기"] },
-  { id:3,  name:"파주 임진강 오토캠핑장", region:"파주",     group:"파주", drive:45,  rating:4.6, reviews:210, wd:42000, we:55000, pk:68000, tags:["강변","잔디","전기","개수대"] },
-  { id:4,  name:"연천 한탄강 오토캠핑장", region:"연천",     group:"연천", drive:70,  rating:4.7, reviews:289, wd:40000, we:52000, pk:66000, tags:["강변","단풍","불멍","전기"] },
-  { id:5,  name:"철원 숲그늘 오토캠핑",   region:"강원 철원", group:"강원", drive:95,  rating:4.5, reviews:178, wd:44000, we:56000, pk:70000, tags:["숲","그늘","통풍","전기"] },
-  { id:6,  name:"춘천 호숫가 오토캠핑장", region:"강원 춘천", group:"강원", drive:110, rating:4.7, reviews:331, wd:48000, we:60000, pk:76000, tags:["호수","조망","단풍","전기","온수"] },
-  { id:7,  name:"포천 온돌데크 오토캠핑", region:"포천",     group:"포천", drive:85,  rating:4.4, reviews:143, wd:46000, we:58000, pk:72000, tags:["전기","온수","온돌데크","난방","볕"] },
-  { id:8,  name:"강릉 바다뷰 오토캠핑장", region:"강원 강릉", group:"강원", drive:175, rating:4.8, reviews:402, wd:55000, we:70000, pk:90000, tags:["바다","조망","전기","온수"] },
-  { id:9,  name:"속초 설악 오토캠핑",     region:"강원 속초", group:"강원", drive:180, rating:4.6, reviews:255, wd:52000, we:66000, pk:85000, tags:["설경","눈","단풍","온수","전기"] },
-  { id:10, name:"파주 벚꽃길 오토캠핑장", region:"파주",     group:"파주", drive:50,  rating:4.5, reviews:167, wd:40000, we:52000, pk:64000, tags:["벚꽃","꽃","잔디","그늘"] },
-  { id:11, name:"연천 별빛 오토캠핑",     region:"연천",     group:"연천", drive:75,  rating:4.3, reviews:98,  wd:38000, we:48000, pk:60000, tags:["조망","불멍","전기"] },
-  { id:12, name:"홍천 눈꽃 오토캠핑장",   region:"강원 홍천", group:"강원", drive:105, rating:4.6, reviews:221, wd:47000, we:60000, pk:78000, tags:["눈","설경","온수","난방","전기"] }
+  { id:1,  name:"포천 계곡숲 오토캠핑장", region:"포천",     group:"포천", drive:80,  rating:4.9, reviews:412, wd:45000, we:58000, pk:72000, family:true,  tags:["계곡","물놀이","그늘","숲","놀이터","전기","개수대"] },
+  { id:2,  name:"홍천강 물놀이 오토캠핑", region:"강원 홍천", group:"강원", drive:100, rating:4.8, reviews:356, wd:50000, we:65000, pk:80000, family:true,  tags:["물놀이","수영장","계곡","강변","전기"] },
+  { id:3,  name:"파주 임진강 오토캠핑장", region:"파주",     group:"파주", drive:45,  rating:4.6, reviews:210, wd:42000, we:55000, pk:68000, family:true,  tags:["강변","잔디","놀이터","전기","개수대"] },
+  { id:4,  name:"연천 한탄강 오토캠핑장", region:"연천",     group:"연천", drive:70,  rating:4.7, reviews:289, wd:40000, we:52000, pk:66000, family:true,  tags:["강변","잔디","단풍","불멍","전기"] },
+  { id:5,  name:"철원 숲그늘 오토캠핑",   region:"강원 철원", group:"강원", drive:95,  rating:4.5, reviews:178, wd:44000, we:56000, pk:70000, family:true,  tags:["숲","그늘","통풍","잔디","전기"] },
+  { id:6,  name:"춘천 호숫가 오토캠핑장", region:"강원 춘천", group:"강원", drive:110, rating:4.7, reviews:331, wd:48000, we:60000, pk:76000, family:true,  tags:["호수","조망","단풍","전기","온수"] },
+  { id:7,  name:"포천 온돌데크 오토캠핑", region:"포천",     group:"포천", drive:85,  rating:4.4, reviews:143, wd:46000, we:58000, pk:72000, family:true,  tags:["전기","온수","온돌데크","난방","볕"] },
+  { id:8,  name:"강릉 바다뷰 오토캠핑장", region:"강원 강릉", group:"강원", drive:175, rating:4.8, reviews:402, wd:55000, we:70000, pk:90000, family:true,  tags:["바다","물놀이","조망","전기","온수"] },
+  { id:9,  name:"속초 설악 오토캠핑",     region:"강원 속초", group:"강원", drive:180, rating:4.6, reviews:255, wd:52000, we:66000, pk:85000, family:true,  tags:["설경","눈","단풍","온수","전기"] },
+  { id:10, name:"파주 벚꽃길 오토캠핑장", region:"파주",     group:"파주", drive:50,  rating:4.5, reviews:167, wd:40000, we:52000, pk:64000, family:true,  tags:["벚꽃","꽃","잔디","놀이터","그늘"] },
+  { id:11, name:"연천 별빛 오토캠핑",     region:"연천",     group:"연천", drive:75,  rating:4.3, reviews:98,  wd:38000, we:48000, pk:60000, family:false, familyNote:"커플·힐링 위주 노키즈존", tags:["조망","불멍","전기"] },
+  { id:12, name:"홍천 눈꽃 오토캠핑장",   region:"강원 홍천", group:"강원", drive:105, rating:4.6, reviews:221, wd:47000, we:60000, pk:78000, family:true,  tags:["눈","설경","온수","난방","전기"] },
+  { id:13, name:"포천 프라이빗 노키즈 오토캠핑", region:"포천", group:"포천", drive:90, rating:4.7, reviews:176, wd:60000, we:78000, pk:95000, family:false, familyNote:"노키즈존(미성년 동반 불가)", tags:["숲","조망","불멍","전기"] }
 ];
 
 /* 계절별 '가면 좋은 곳' 정의 — want 태그와 매칭되면 랭킹 가점 */
@@ -59,6 +61,7 @@ CC.TAG_REVIEW = {
   "불멍":"밤에 불멍하기 좋은 아늑한 분위기예요.",
   "조망":"뷰가 좋아서 사진이 잘 나와요.",
   "잔디":"잔디 사이트라 텐트 치기 편하고 아이들 뛰놀기 좋아요.",
+  "놀이터":"놀이터가 있어서 아이들이 지루할 틈이 없었어요.",
   "통풍":"바람이 잘 통해서 여름에도 덥지 않았어요.",
   "볕":"볕이 잘 들어 겨울 낮에도 따뜻했어요."
 };

@@ -67,6 +67,16 @@ window.CC = window.CC || {};
     return sc;
   };
 
+  /* ---------- 가족캠핑 ---------- */
+  /* 아이 동반 가족캠핑 가능 여부 (false = 노키즈존/커플 전용 → 목록에서 제외) */
+  CC.isFamily = function (s) { return s.family !== false; };
+
+  /* 아이에게 좋은 포인트 태그 (상세에서 강조) */
+  CC.KID_TAGS = ["물놀이", "수영장", "놀이터", "잔디", "계곡", "개수대"];
+  CC.kidPoints = function (s) {
+    return s.tags.filter(function (t) { return CC.KID_TAGS.indexOf(t) >= 0; }).slice(0, 3);
+  };
+
   /* ---------- 표시 헬퍼 ---------- */
   CC.won = function (n) { return "₩" + n.toLocaleString("ko-KR"); };
 
