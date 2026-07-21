@@ -6,6 +6,15 @@
   <title>캠핑캐치 — 김포 3시간 오토캠핑</title>
   <meta name="description" content="김포에서 3시간 이내 오토캠핑장을 날씨·계절·거리로 추천해 드려요">
   <link rel="stylesheet" href="css/styles.css">
+  <!-- PWA: 홈 화면에 추가하면 앱처럼 -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#24503B">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="캠핑캐치">
 </head>
 <body>
   <header class="appbar">
@@ -74,5 +83,13 @@
   <script src="js/links.js"></script>
   <script src="js/logic.js"></script>
   <script src="js/app.js"></script>
+  <script>
+    /* 서비스워커 등록 (HTTPS에서만 동작 · 로컬 file://에선 조용히 무시) */
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("sw.js").catch(function () {});
+      });
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,17 @@
+{
+  "name": "캠핑캐치 — 김포 3시간 오토캠핑",
+  "short_name": "캠핑캐치",
+  "description": "김포에서 3시간 이내 오토캠핑장을 날씨·계절·거리로 추천",
+  "lang": "ko",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#EBEFE9",
+  "theme_color": "#24503B",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
