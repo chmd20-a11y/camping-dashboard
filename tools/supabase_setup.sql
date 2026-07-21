@@ -25,11 +25,12 @@ create table if not exists public.comments (
   is_admin   boolean not null default false
 );
 
--- 3) 관리자 댓글 표시: 로그인 여부를 서버가 직접 스탬프(클라 위조 방지)
+-- 3) 관리자 댓글 표시: 관리자 이메일 여부를 서버가 직접 스탬프(클라 위조 방지)
+--    ※ 아래 'chmd20@gmail.com' 을 본인 관리자 이메일로 바꿔서 사용
 create or replace function public.stamp_is_admin()
 returns trigger language plpgsql as $$
 begin
-  new.is_admin := (auth.role() = 'authenticated');
+  new.is_admin := ((auth.jwt() ->> 'email') = 'chmd20@gmail.com');
   return new;
 end $$;
 drop trigger if exists trg_stamp_is_admin on public.comments;
@@ -48,12 +49,12 @@ create policy "read_comments" on public.comments for select using (true);
 create policy "insert_requests" on public.requests for insert with check (status = '요청');
 -- 댓글 작성: 누구나
 create policy "insert_comments" on public.comments for insert with check (true);
--- 상태 변경(완료 처리 등): 로그인한 관리자만
+-- 상태 변경(완료 처리 등): 관리자 이메일만 (아무나 가입해 관리자 되는 것 방지)
 create policy "update_requests_admin" on public.requests for update
-  using (auth.role() = 'authenticated') with check (true);
--- 삭제(정리용): 관리자만
-create policy "delete_requests_admin" on public.requests for delete using (auth.role() = 'authenticated');
-create policy "delete_comments_admin" on public.comments for delete using (auth.role() = 'authenticated');
+  using ((auth.jwt() ->> 'email') = 'chmd20@gmail.com') with check (true);
+-- 삭제(정리용): 관리자 이메일만
+create policy "delete_requests_admin" on public.requests for delete using ((auth.jwt() ->> 'email') = 'chmd20@gmail.com');
+create policy "delete_comments_admin" on public.comments for delete using ((auth.jwt() ->> 'email') = 'chmd20@gmail.com');
 
 -- ============================================================
 -- 실행 후 대시보드에서:
