@@ -15,7 +15,7 @@ window.CC = window.CC || {};
   var state = {
     date: "2026-08-15",   // 계절 추천 기준일 (여름이 바로 보이도록)
     sort: "reco",
-    regions: { "파주": true, "연천": true, "포천": true, "강원": true },
+    regions: { "파주": false, "연천": false, "포천": false, "강원": false },  // 기본: 미선택 = 전체
     favorites: {}
   };
 
@@ -42,7 +42,12 @@ window.CC = window.CC || {};
   }
 
   /* ---------- 필터 & 정렬 ---------- */
+  function anyRegion() {
+    return CC.REGION_META.some(function (r) { return state.regions[r.key]; });
+  }
+  // 지역 미선택 = 전체 표시
   function visibleSites() {
+    if (!anyRegion()) return CC.SITES.slice();
     return CC.SITES.filter(function (s) { return state.regions[s.group]; });
   }
   function sortedSites() {
@@ -61,17 +66,26 @@ window.CC = window.CC || {};
   /* ---------- 지역 필터 ---------- */
   function renderRegions() {
     var row = $("regionRow"); row.innerHTML = "";
+    var noneSel = !anyRegion();
+
+    // '전체' 칩 — 아무 지역도 선택 안 하면 활성(=전체 보기)
+    var all = document.createElement("button");
+    all.className = "rchip all" + (noneSel ? " on" : "");
+    all.setAttribute("aria-pressed", noneSel ? "true" : "false");
+    all.innerHTML = (noneSel ? '<span class="rck">✓</span>' : '') + '전체';
+    all.onclick = function () {
+      CC.REGION_META.forEach(function (r) { state.regions[r.key] = false; });
+      render();
+    };
+    row.appendChild(all);
+
     CC.REGION_META.forEach(function (r) {
+      var on = !!state.regions[r.key];
       var b = document.createElement("button");
-      b.className = "rchip" + (state.regions[r.key] ? " on" : "");
-      b.innerHTML = r.key + '<span class="rd">' + r.d + '</span>';
-      b.setAttribute("aria-pressed", state.regions[r.key] ? "true" : "false");
-      b.onclick = function () {
-        var on = Object.keys(state.regions).filter(function (k) { return state.regions[k]; });
-        if (state.regions[r.key] && on.length === 1) { toast("최소 한 개 지역은 선택해 주세요"); return; }
-        state.regions[r.key] = !state.regions[r.key];
-        render();
-      };
+      b.className = "rchip" + (on ? " on" : "");
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+      b.innerHTML = (on ? '<span class="rck">✓</span>' : '') + r.key + '<span class="rd">' + r.d + '</span>';
+      b.onclick = function () { state.regions[r.key] = !state.regions[r.key]; render(); };
       row.appendChild(b);
     });
   }

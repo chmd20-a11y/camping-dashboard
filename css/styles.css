@@ -86,10 +86,14 @@ select.inp{ padding-right:28px; background-image:linear-gradient(45deg,transpare
 .exclude-note{ display:flex; align-items:center; gap:7px; margin-top:6px; padding:9px 13px; border-radius:11px; background:var(--surface-2); border:1px dashed var(--line-2); font-size:.78rem; font-weight:600; color:var(--ink-2); }
 .exclude-note b{ color:var(--accent-2); }
 
-.region-row{ display:flex; gap:7px; flex-wrap:wrap; margin-top:10px; }
-.rchip{ font-size:.76rem; font-weight:700; padding:6px 12px; border-radius:999px; border:1px solid var(--line-2); background:var(--surface); color:var(--ink-2); }
-.rchip.on{ background:var(--brand-soft); border-color:color-mix(in srgb,var(--brand) 40%, var(--line)); color:var(--brand); }
-.rchip .rd{ font-family:var(--mono); font-size:.66rem; opacity:.8; margin-left:3px; }
+.region-row{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; align-items:center; }
+.rchip{ display:inline-flex; align-items:center; gap:5px; font-size:.8rem; font-weight:700; padding:8px 13px; border-radius:999px; border:1.5px solid var(--line-2); background:var(--surface); color:var(--ink-2); transition:background .12s ease, border-color .12s ease, color .12s ease; }
+.rchip:hover{ border-color:var(--brand); color:var(--ink); }
+.rchip.on{ background:var(--brand); border-color:var(--brand); color:#fff; box-shadow:0 2px 8px color-mix(in srgb,var(--brand) 32%, transparent); }
+.rchip .rd{ font-family:var(--mono); font-size:.66rem; opacity:.75; margin-left:1px; }
+.rchip.on .rd{ opacity:.9; color:#fff; }
+.rck{ font-weight:900; font-size:.72rem; line-height:1; }
+.region-hint{ margin-top:8px; font-size:.72rem; color:var(--muted); }
 
 /* ---------- season banner ---------- */
 .season-banner{ display:flex; align-items:center; gap:11px; padding:13px 15px; border-radius:14px; background:var(--accent-soft); border:1px solid color-mix(in srgb,var(--accent) 25%, var(--line)); margin-top:4px; }
