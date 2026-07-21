@@ -21,11 +21,17 @@
     <div class="appbar-in">
       <span class="logo">⛺</span>
       <span class="brand-txt"><b>캠핑캐치</b><span>김포 3시간 이내 · 오토캠핑</span></span>
+      <button class="appbar-btn" id="openBoard" hidden>💬 요청</button>
     </div>
   </header>
 
   <main class="wrap">
-    <div class="controls">
+    <div class="controls" id="controls">
+      <button class="ctrl-summary" id="ctrlToggle" type="button" aria-expanded="true" aria-controls="ctrlDetail">
+        <span class="cs-text" id="ctrlSummaryText">조건</span>
+        <span class="cs-caret" id="ctrlCaret">조건 변경 ▾</span>
+      </button>
+      <div class="ctrl-detail" id="ctrlDetail">
       <div class="preset-row" id="presetRow">
         <span class="preset-lbl">언제 갈까요?</span>
         <button class="qbtn" data-preset="tmr" aria-pressed="false">내일</button>
@@ -57,6 +63,7 @@
       </div>
       <div class="region-row" id="regionRow"></div>
       <div class="region-hint">지역을 누르면 그 지역만 · 아무것도 안 누르면 전체를 보여줘요</div>
+      </div><!-- /ctrl-detail -->
     </div>
 
     <div class="season-banner" id="seasonBanner"></div>
@@ -78,11 +85,26 @@
   <aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="캠핑장 상세"></aside>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+  <!-- 개발 요청 게시판 (Supabase 설정 시 활성) -->
+  <div class="board-backdrop" id="boardBackdrop"></div>
+  <aside class="board" id="board" role="dialog" aria-modal="true" aria-label="개발 요청 게시판" hidden>
+    <div class="board-head">
+      <h2>💬 개발 요청 게시판</h2>
+      <div class="board-head-actions">
+        <button id="boardAdminBtn" class="board-admin-btn">관리자</button>
+        <button id="boardClose" class="board-close" aria-label="닫기">✕</button>
+      </div>
+    </div>
+    <div class="board-body" id="boardBody"></div>
+  </aside>
+
   <script src="js/config.js"></script>
   <script src="js/sites.js"></script>
   <script src="js/links.js"></script>
   <script src="js/logic.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/board-config.js"></script>
+  <script src="js/board.js"></script>
   <script>
     /* 서비스워커 등록 (HTTPS에서만 동작 · 로컬 file://에선 조용히 무시) */
     if ("serviceWorker" in navigator) {

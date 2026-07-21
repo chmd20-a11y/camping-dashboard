@@ -25,7 +25,8 @@ window.CC = window.CC || {};
     checks: {},           // { id: {s:"open"|"none"|"booked", d:"YYYY-MM-DD"} }
     weather: {},          // { id: agg }  (현재 기간 기준)
     weatherKey: "",       // 날씨를 받아둔 "start|end"
-    weatherMode: ""       // "loading" | "forecast" | "far" | "fail"
+    weatherMode: "",      // "loading" | "forecast" | "far" | "fail"
+    ctrlOpen: true        // 조건 패널 펼침 여부 (모바일은 기본 접힘)
   };
 
   var $ = function (id) { return document.getElementById(id); };
@@ -186,6 +187,27 @@ window.CC = window.CC || {};
     });
   }
 
+  /* ---------- 조건 패널 접기/펼치기 (모바일 답답함 완화) ---------- */
+  var SORT_LABEL = { reco: "추천순", near: "가까운순", auto: "오토 규모순", season: "계절 적합순" };
+  function shortPeriod() {
+    var a = ymdToDate(state.start), b = ymdToDate(state.end);
+    var f = function (d) { return (d.getMonth() + 1) + "/" + d.getDate(); };
+    return f(a) + "→" + f(b);
+  }
+  function regionSummary() {
+    if (!anyRegion()) return "전체";
+    return CC.REGION_META.filter(function (r) { return state.regions[r.key]; }).map(function (r) { return r.key; }).join("·");
+  }
+  function applyCtrlState() {
+    var c = $("controls"); if (!c) return;
+    c.classList.toggle("collapsed", !state.ctrlOpen);
+    var t = $("ctrlToggle"); if (t) t.setAttribute("aria-expanded", state.ctrlOpen ? "true" : "false");
+    var cr = $("ctrlCaret"); if (cr) cr.textContent = state.ctrlOpen ? "접기 ▴" : "조건 변경 ▾";
+    var s = $("ctrlSummaryText");
+    if (s) s.innerHTML = '📅 ' + shortPeriod() + ' · ' + esc(regionSummary()) + ' · ' + SORT_LABEL[state.sort];
+  }
+  function isNarrow() { return window.innerWidth <= 640; }
+
   /* ---------- 빠른 날짜 프리셋 하이라이트 ---------- */
   function renderPresets() {
     var cur = activePreset();
@@ -328,7 +350,7 @@ window.CC = window.CC || {};
     });
   }
 
-  function render() { renderPresets(); renderRegions(); renderBanner(); renderWeatherNote(); renderCuration(); renderList(); }
+  function render() { applyCtrlState(); renderPresets(); renderRegions(); renderBanner(); renderWeatherNote(); renderCuration(); renderList(); }
 
   /* ---------- 상세 시트 ---------- */
   function openDetail(id) {
@@ -455,17 +477,20 @@ window.CC = window.CC || {};
     if (!e.target.value) { e.target.value = state.start; return; }
     state.start = e.target.value;
     if (ymdToDate(state.end) <= ymdToDate(state.start)) state.end = addDays(state.start, 1);  // 최소 1박 보장
+    if (isNarrow()) state.ctrlOpen = false;   // 설정했으면 접어서 결과에 집중
     syncDateInputs(); render(); fetchWeather();
   }
   function onEndChange(e) {
     if (!e.target.value) { e.target.value = state.end; return; }
     state.end = e.target.value;
     if (ymdToDate(state.end) <= ymdToDate(state.start)) state.start = addDays(state.end, -1);
+    if (isNarrow()) state.ctrlOpen = false;
     syncDateInputs(); render(); fetchWeather();
   }
   function applyPreset(k) {
     var p = PRESETS[k] && PRESETS[k](); if (!p) return;
     state.start = p.start; state.end = p.end;
+    if (isNarrow()) state.ctrlOpen = false;   // 프리셋 선택 = '언제' 정해짐 → 접기
     syncDateInputs(); render(); fetchWeather();
   }
 
@@ -474,9 +499,11 @@ window.CC = window.CC || {};
     loadChecks();
     var wk = PRESETS.week();            // 기본 = 이번 주말 (예보 범위 안)
     state.start = wk.start; state.end = wk.end;
+    state.ctrlOpen = !isNarrow();       // 모바일은 접힌 채로 시작(결과가 바로 보이게)
     $("startInp").addEventListener("change", onStartChange);
     $("endInp").addEventListener("change", onEndChange);
-    $("sortSel").addEventListener("change", function (e) { state.sort = e.target.value; renderList(); });
+    $("sortSel").addEventListener("change", function (e) { state.sort = e.target.value; applyCtrlState(); renderList(); });
+    $("ctrlToggle").addEventListener("click", function () { state.ctrlOpen = !state.ctrlOpen; applyCtrlState(); });
     Array.prototype.forEach.call(document.querySelectorAll("[data-preset]"), function (b) {
       b.addEventListener("click", function () { applyPreset(b.getAttribute("data-preset")); });
     });
