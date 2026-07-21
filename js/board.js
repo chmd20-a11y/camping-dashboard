@@ -79,6 +79,7 @@ window.CC = window.CC || {};
   var items = [];        // 요청 목록
   var openId = null;     // 펼친 요청 id
   var commentsCache = {};// { rid: [comments] }
+  var boardShown = false;// 게시판 열림 여부(뒤로가기 닫기용)
 
   /* ---------- 렌더 ---------- */
   function statusPill(s) { return '<span class="bd-status s' + STATUSES.indexOf(s) + '">' + esc(s) + '</span>'; }
@@ -225,11 +226,15 @@ window.CC = window.CC || {};
     document.body.style.overflow = "hidden";
     renderBody(); syncAdminBtn();
     refresh().catch(function (err) { $("bdList").innerHTML = '<div class="bd-empty">불러오지 못했어요: ' + esc(err.message) + '</div>'; });
+    if (!boardShown) { boardShown = true; history.pushState({ cc: "board" }, ""); }  // 뒤로가기로 닫기
   }
-  function close() {
+  function close(fromPop) {
+    if (!boardShown) return;
+    boardShown = false;
     $("board").classList.remove("show"); $("boardBackdrop").classList.remove("show");
     document.body.style.overflow = "";
     setTimeout(function () { $("board").hidden = true; }, 220);
+    if (fromPop !== true) history.back();
   }
 
   function toast(msg) {
@@ -247,6 +252,7 @@ window.CC = window.CC || {};
     $("boardBackdrop").addEventListener("click", close);
     $("boardAdminBtn").addEventListener("click", adminPrompt);
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !$("board").hidden) close(); });
+    window.addEventListener("popstate", function () { if (boardShown) close(true); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();

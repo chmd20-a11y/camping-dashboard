@@ -353,6 +353,7 @@ window.CC = window.CC || {};
   function render() { applyCtrlState(); renderPresets(); renderRegions(); renderBanner(); renderWeatherNote(); renderCuration(); renderList(); }
 
   /* ---------- 상세 시트 ---------- */
+  var sheetOpen = false;
   function openDetail(id) {
     var s = CC.SITES.filter(function (x) { return x.id === id; })[0];
     if (!s) return;
@@ -450,12 +451,17 @@ window.CC = window.CC || {};
     $("backdrop").classList.add("show");
     var sh = $("sheet"); sh.classList.add("show"); sh.scrollTop = 0;
     document.body.style.overflow = "hidden";
+    // 뒤로가기(또는 가장자리 스와이프)로 닫히도록 히스토리 한 칸 추가
+    if (!sheetOpen) { sheetOpen = true; history.pushState({ cc: "sheet" }, ""); }
   }
 
-  function closeSheet() {
+  function closeSheet(fromPop) {
+    if (!sheetOpen) return;
+    sheetOpen = false;
     $("sheet").classList.remove("show");
     $("backdrop").classList.remove("show");
     document.body.style.overflow = "";
+    if (fromPop !== true) history.back();   // ✕·백드롭으로 닫으면 우리가 넣은 히스토리 제거
   }
 
   /* ---------- 토스트 ---------- */
@@ -509,6 +515,7 @@ window.CC = window.CC || {};
     });
     $("backdrop").addEventListener("click", closeSheet);
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeSheet(); });
+    window.addEventListener("popstate", function () { if (sheetOpen) closeSheet(true); });
     syncDateInputs();
     render();
     fetchWeather();
