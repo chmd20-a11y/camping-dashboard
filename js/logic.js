@@ -184,9 +184,11 @@ window.CC = window.CC || {};
     return "https://search.naver.com/search.naver?query=" + encodeURIComponent(s.name + " 캠핑장 후기");
   };
 
-  /* 카카오맵 길찾기 (김포 → 캠핑장) */
+  /* 네이버지도 길찾기 (김포 집 → 캠핑장, 자동차) */
   CC.mapLink = function (s) {
-    return "https://map.kakao.com/link/to/" + encodeURIComponent(s.name) + "," + s.lat + "," + s.lng;
+    var start = "126.6206,37.6435," + encodeURIComponent("김포") + ",,";
+    var goal = s.lng + "," + s.lat + "," + encodeURIComponent(s.name) + ",,";
+    return "https://map.naver.com/p/directions/" + start + "/" + goal + "/-/car";
   };
 
   /* 대표 이모지 / 썸네일 배경 (태그 기반) */
