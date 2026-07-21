@@ -200,10 +200,10 @@ window.CC = window.CC || {};
   function renderWeatherNote() {
     var el = $("wxNote"); if (!el) return;
     var m = state.weatherMode, html = "", cls = "";
-    if (m === "loading")       { html = '⛅ 이 기간 <b>실제 날씨·바람</b>을 불러오는 중…'; cls = "load"; }
-    else if (m === "forecast") { html = '💨 <b>' + periodTxt() + '</b> 실제 예보 반영 — <b>비·바람 나쁜 곳은 아래로</b> 내렸어요. <span class="muted-note">캠핑엔 바람이 제일 중요해 강풍은 크게 감점합니다.</span>'; cls = "ok"; }
-    else if (m === "far")      { html = '📅 <b>' + periodTxt() + '</b>은 날씨 예보 범위(약 16일) 밖이에요. 지금은 <b>계절 특성</b>으로 추천하고, <b>D-16부터 실제 날씨·바람</b>으로 다시 정렬해 드려요.'; cls = "far"; }
-    else if (m === "fail")     { html = '⚠️ 날씨를 불러오지 못했어요. 잠시 후 날짜를 다시 선택해 보세요.'; cls = "fail"; }
+    if (m === "loading")       { html = '⛅ 이 기간 날씨를 불러오는 중…'; cls = "load"; }
+    else if (m === "forecast") { html = '🌤️ <b>' + periodTxt() + '</b> 날씨 기준으로 <b>비·바람 좋은 곳을 위로</b> 정렬했어요.'; cls = "ok"; }
+    else if (m === "far")      { html = '📅 출발이 아직 멀어 <b>날씨 예보가 나오기 전</b>이에요. 지금은 <b>계절에 맞는 곳</b> 위주로 보여드려요.'; cls = "far"; }
+    else if (m === "fail")     { html = '⚠️ 날씨를 불러오지 못했어요. 잠시 후 다시 시도해 주세요.'; cls = "fail"; }
     el.className = "wx-note " + cls;
     el.innerHTML = html;
   }
@@ -371,10 +371,10 @@ window.CC = window.CC || {};
             '<span class="chip ' + CC.wxClass(w) + '">☔ 비 ' + w.pop + '%</span>' +
             '<span class="chip ' + CC.windClass(w) + '">💨 바람 ' + w.wind + 'm/s' + (w.gust >= w.wind + 3 ? ' · 돌풍 ' + w.gust : '') + ' · ' + CC.WIND_LABEL[w.windSev] + '</span>' +
           '</div>' +
-          '<div class="wxd-note">' + periodTxt() + ' 실제 예보 · ' + tip + '</div>' +
+          '<div class="wxd-note">' + periodTxt() + ' · ' + tip + '</div>' +
         '</div>';
     } else if (state.weatherMode === "far") {
-      wxBlock = '<div class="wx-detail far">📅 <b>' + periodTxt() + '</b>은 날씨 예보 범위(약 16일) 밖이에요. 지금은 계절 특성으로 판단하고, D-16부터 실제 날씨·바람이 표시됩니다.</div>';
+      wxBlock = '<div class="wx-detail far">📅 출발이 아직 멀어 날씨 예보가 나오기 전이에요. 출발이 가까워지면 이 기간 날씨·바람을 보여드려요.</div>';
     }
 
     // 자리 확인 추적 (있음/없음/예약)

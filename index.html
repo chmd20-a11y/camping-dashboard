@@ -4,17 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>캠핑캐치 — 김포 3시간 오토캠핑</title>
-  <meta name="description" content="김포 기준 3시간 이내 오토캠핑장을 계절·거리로 추천하는 대시보드 (고캠핑 실데이터)">
+  <meta name="description" content="김포에서 3시간 이내 오토캠핑장을 날씨·계절·거리로 추천해 드려요">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header class="appbar">
     <div class="appbar-in">
       <span class="logo">⛺</span>
-      <span class="brand-txt"><b>캠핑캐치</b><span>김포 3시간 이내 · 오토캠핑 · 실데이터</span></span>
+      <span class="brand-txt"><b>캠핑캐치</b><span>김포 3시간 이내 · 오토캠핑</span></span>
     </div>
   </header>
-  <div class="proto-note">실데이터: 고캠핑(한국관광공사) API + <b>Open-Meteo 날씨·바람</b> · 가격·실시간 자리는 예약처 확인</div>
 
   <main class="wrap">
     <div class="controls">
@@ -36,7 +35,7 @@
         <div class="field">
           <label for="sortSel">정렬</label>
           <select class="inp" id="sortSel">
-            <option value="reco">추천순 (계절+시설+거리)</option>
+            <option value="reco">추천순</option>
             <option value="near">가까운순</option>
             <option value="auto">오토 규모순</option>
             <option value="season">계절 적합순</option>
@@ -61,8 +60,8 @@
     <div class="list" id="list"></div>
 
     <footer>
-      데이터: 고캠핑(한국관광공사) 공개 API (이용허락범위 제한 없음) · 날씨: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> (CC BY 4.0, 비상업)<br>
-      날씨·바람은 예보 범위(약 16일) 안에서만 표시·정렬에 반영합니다. 가격·실시간 자리는 예약처(캠핏·네이버 등)에서 확인하세요.
+      캠핑캐치 · 김포 3시간 이내 오토캠핑<br>
+      날씨 제공 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · 캠핑장 정보 한국관광공사 고캠핑
     </footer>
   </main>
 
