@@ -388,7 +388,7 @@ window.CC = window.CC || {};
 
     var srcNote;
     if (rl.calendar) {
-      srcNote = '🗓️ <b>' + periodTxt() + '</b> · 아래 <b>예약 캘린더 열기</b>를 누르면 예약 사이트에서 이 기간 <b>실시간 빈자리</b>를 바로 확인·예약할 수 있어요. <span class="muted-note">(대시보드가 자리를 직접 조회하진 않아요)</span>';
+      srcNote = '🗓️ <b>' + periodTxt() + '</b> · 아래 <b>예약 캘린더 열기</b>를 누르면 예약 사이트에서 이 기간 <b>실시간 빈자리</b>를 바로 확인·예약할 수 있어요.';
     } else if (rl.direct) {
       srcNote = '🗓️ <b>' + periodTxt() + '</b> · 아래 <b>예약처로 이동</b> 후 <b>' + esc(s.name) + '</b>을(를) 찾아 이 기간 자리를 확인하세요.';
     } else {
