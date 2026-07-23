@@ -238,6 +238,18 @@ footer{ text-align:center; color:var(--muted); font-size:.74rem; padding:30px 16
 .pill.wind.good{ background:var(--surface-3); color:var(--ink-2); }
 .pill.wind.mid{ background:var(--warn-bg); color:var(--warn); }
 .pill.wind.bad{ background:var(--crit-bg); color:var(--crit); font-weight:800; }
+/* 예약가능성 배지 (🟢 실데이터 / 예측) */
+.pill.av-real{ background:var(--good); color:#fff; font-weight:800; }
+.pill.av-tight{ background:var(--crit-bg); color:var(--crit); }
+.pill.av-mid{ background:var(--warn-bg); color:var(--warn); }
+.pill.av-roomy{ background:var(--good-bg); color:var(--good); }
+.av-pred{ font-style:normal; font-size:.6rem; font-weight:800; opacity:.65; margin-left:5px; padding:0 4px; border:1px solid currentColor; border-radius:4px; }
+.av-detail{ margin:10px 0; padding:10px 12px; border-radius:10px; font-size:.86rem; font-weight:700; }
+.av-detail.real{ background:var(--good); color:#fff; }
+.av-detail.av-tight{ background:var(--crit-bg); color:var(--crit); }
+.av-detail.av-mid{ background:var(--warn-bg); color:var(--warn); }
+.av-detail.av-roomy{ background:var(--good-bg); color:var(--good); }
+.av-detail .av-src{ font-weight:600; opacity:.75; }
 
 /* ---------- 카드 확인 트레이 ---------- */
 .sc-tray{ display:flex; align-items:center; gap:7px; flex-wrap:wrap; margin-top:9px; padding-top:9px; border-top:1px dashed var(--line); }

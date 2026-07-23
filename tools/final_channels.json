@@ -1,0 +1,1289 @@
+[
+ {
+  "id": "101641",
+  "name": "파주 성수캠핑장",
+  "region": "파주시",
+  "platform": "phone_only",
+  "readability": "no",
+  "confidence": "med",
+  "source": "URL보유"
+ },
+ {
+  "id": "101251",
+  "name": "프로방스 캠핑장",
+  "region": "파주시",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "306",
+  "name": "공릉관광지 캠핑장",
+  "region": "파주시",
+  "platform": "public",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "100613",
+  "name": "자유로캠핑장",
+  "region": "파주시",
+  "platform": "phone_only",
+  "readability": "no",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "1218",
+  "name": "박석 캠핑장",
+  "region": "파주시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "7254",
+  "name": "평화누리캠핑장",
+  "region": "파주시",
+  "platform": "public",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "1066",
+  "name": "명학산 캠핑장",
+  "region": "파주시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "7961",
+  "name": "어반캠핑 마장호수",
+  "region": "파주시",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "101601",
+  "name": "파주발랑캠핑타운",
+  "region": "파주시",
+  "platform": "phone_only",
+  "readability": "no",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "101017",
+  "name": "outside",
+  "region": "파주시",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "101891",
+  "name": "동화힐링캠프",
+  "region": "파주시",
+  "platform": "naver",
+  "readability": "partial",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "101248",
+  "name": "배나무꽃 캠핑장",
+  "region": "파주시",
+  "platform": "naver",
+  "readability": "partial",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "1321",
+  "name": "별난독서문화체험장",
+  "region": "파주시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "2534",
+  "name": "은사시캠핑장",
+  "region": "파주시",
+  "platform": "thankq",
+  "readability": "partial",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "100299",
+  "name": "두부삼촌캠프",
+  "region": "파주시",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "3361",
+  "name": "하마캠핑장",
+  "region": "파주시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "100517",
+  "name": "태양힐링숲",
+  "region": "파주시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "100524",
+  "name": "평화누리체험장",
+  "region": "연천군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "100749",
+  "name": "한솔 스테이",
+  "region": "연천군",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "101879",
+  "name": "임진강 햇살 글램핑",
+  "region": "연천군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "101212",
+  "name": "옴니버스 캠핑장",
+  "region": "연천군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "6857",
+  "name": "영수야 놀자",
+  "region": "연천군",
+  "platform": "phone_only",
+  "readability": "no",
+  "confidence": "med",
+  "source": "URL보유"
+ },
+ {
+  "id": "101669",
+  "name": "캠핑엔조이",
+  "region": "파주시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "101049",
+  "name": "농업회사법인 시즌온 주식회사",
+  "region": "파주시",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "101297",
+  "name": "바베큐존파크",
+  "region": "포천시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "102032",
+  "name": "(에드203) 플라네캠핑장",
+  "region": "연천군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "101549",
+  "name": "산속정원캠핑장",
+  "region": "연천군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "100668",
+  "name": "숲속의쉼터 키즈",
+  "region": "연천군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "8113",
+  "name": "아미캠핑장",
+  "region": "연천군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "101880",
+  "name": "여우별 캠핑장",
+  "region": "연천군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "100492",
+  "name": "달그린캠프",
+  "region": "연천군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "101088",
+  "name": "금동휴양림캠프3",
+  "region": "포천시",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "3262",
+  "name": "포시즌스 오토캠핑장",
+  "region": "포천시",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "100664",
+  "name": "금동휴양림캠프2",
+  "region": "포천시",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "3423",
+  "name": "한탄강관광지오토캠핑장",
+  "region": "연천군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "100351",
+  "name": "엉클킴스 캠핑장",
+  "region": "포천시",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "2762",
+  "name": "주식회사 신북리조트",
+  "region": "포천시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "100787",
+  "name": "금동휴양림캠프1",
+  "region": "포천시",
+  "platform": "naver",
+  "readability": "partial",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "100370",
+  "name": "포천그린별캠핑장",
+  "region": "포천시",
+  "platform": "thankq",
+  "readability": "partial",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "1151",
+  "name": "물꽃 캠핑장",
+  "region": "연천군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "101106",
+  "name": "임진강 캠핑장",
+  "region": "연천군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "7264",
+  "name": "임진물새롬센터 오토캠핑장",
+  "region": "연천군",
+  "platform": "public",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "100461",
+  "name": "블루밍 캠핑장",
+  "region": "포천시",
+  "platform": "phone_only",
+  "readability": "no",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "7584",
+  "name": "깊이울관광농원(깊이울 캠핑장)",
+  "region": "포천시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "100482",
+  "name": "포천 땡큐247 캠핑장",
+  "region": "포천시",
+  "platform": "thankq",
+  "readability": "partial",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "100604",
+  "name": "메이드캠퍼스",
+  "region": "포천시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "100616",
+  "name": "잭스캠프",
+  "region": "포천시",
+  "platform": "naver",
+  "readability": "partial",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "100618",
+  "name": "타이니포춘",
+  "region": "포천시",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "100654",
+  "name": "딥포레스트캠핑장",
+  "region": "포천시",
+  "platform": "thankq",
+  "readability": "partial",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "100703",
+  "name": "스톤브룩 캠핑장",
+  "region": "연천군",
+  "platform": "thankq",
+  "readability": "partial",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "101190",
+  "name": "돈키호테캠핑",
+  "region": "포천시",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "100778",
+  "name": "베네치아캠핑장",
+  "region": "포천시",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "7211",
+  "name": "수피다 캠핑장",
+  "region": "강원 화천군",
+  "platform": "phone_only",
+  "readability": "no",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "101050",
+  "name": "우니메이카 포천점",
+  "region": "포천시",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "7747",
+  "name": "포천두꺼비",
+  "region": "포천시",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "100283",
+  "name": "리버앤캠프",
+  "region": "연천군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "2886",
+  "name": "캠핑플래닛",
+  "region": "포천시",
+  "platform": "naver",
+  "readability": "partial",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "2200",
+  "name": "연천재인폭포오토캠핑장",
+  "region": "연천군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "101434",
+  "name": "포애뜰",
+  "region": "포천시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "100256",
+  "name": "우리오토캠핑장",
+  "region": "연천군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "101038",
+  "name": "초이스캠프",
+  "region": "포천시",
+  "platform": "thankq",
+  "readability": "partial",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "101204",
+  "name": "백설기캠핑장",
+  "region": "포천시",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "100590",
+  "name": "라곰",
+  "region": "연천군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "101966",
+  "name": "아미힐(ami hill)",
+  "region": "연천군",
+  "platform": "phone_only",
+  "readability": "no",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "100276",
+  "name": "청계호수 자작나무숲 캠핑장",
+  "region": "포천시",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "3271",
+  "name": "포천 비둘기낭 캠핑장",
+  "region": "포천시",
+  "platform": "public",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "100585",
+  "name": "에스원캠프",
+  "region": "포천시",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "101169",
+  "name": "포천 몽롱한노을 카라반 캠핑장",
+  "region": "포천시",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "1051",
+  "name": "핫도그342애견글램핑카라반 주식회사",
+  "region": "포천시",
+  "platform": "camplink",
+  "readability": "partial",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "101214",
+  "name": "캠프다온",
+  "region": "포천시",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "102029",
+  "name": "캠프빌리지 345",
+  "region": "포천시",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "102285",
+  "name": "캠프 몽림",
+  "region": "포천시",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "100401",
+  "name": "캠프원",
+  "region": "포천시",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "101133",
+  "name": "캠핑7604",
+  "region": "연천군",
+  "platform": "phone_only",
+  "readability": "no",
+  "confidence": "med",
+  "source": "URL보유"
+ },
+ {
+  "id": "100917",
+  "name": "포천 리버빌캠핑&카페",
+  "region": "포천시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "100483",
+  "name": "테라스527 캠핑장",
+  "region": "포천시",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "101741",
+  "name": "너우리 캠핑농원",
+  "region": "포천시",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "100706",
+  "name": "벤캠프(Ben Camp)",
+  "region": "포천시",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "12",
+  "name": "어반슬로우시티",
+  "region": "강원 춘천시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "1085",
+  "name": "몬테비얀코",
+  "region": "포천시",
+  "platform": "thankq",
+  "readability": "partial",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "39",
+  "name": "DMZ 캠핑장",
+  "region": "강원 철원군",
+  "platform": "phone_only",
+  "readability": "no",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "8032",
+  "name": "약사밤나무집 캠핑장",
+  "region": "포천시",
+  "platform": "phone_only",
+  "readability": "no",
+  "confidence": "med",
+  "source": "URL보유"
+ },
+ {
+  "id": "7814",
+  "name": "휴랜드관광농원",
+  "region": "포천시",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "6953",
+  "name": "각흘계곡캠핑장",
+  "region": "포천시",
+  "platform": "naver",
+  "readability": "partial",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "100598",
+  "name": "가보세캠핑장",
+  "region": "포천시",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "2538",
+  "name": "엘리시안 강촌 캠핑파크",
+  "region": "강원 춘천시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "165",
+  "name": "강촌달머리캠핑장",
+  "region": "강원 춘천시",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "100547",
+  "name": "캠프하다",
+  "region": "강원 홍천군",
+  "platform": "naver",
+  "readability": "partial",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "100465",
+  "name": "도담캠핑장",
+  "region": "강원 홍천군",
+  "platform": "thankq",
+  "readability": "partial",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "100671",
+  "name": "홍천 뜨란 오토캠핑장",
+  "region": "강원 홍천군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "100693",
+  "name": "춘천 더숲 캠핑장",
+  "region": "강원 춘천시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "3024",
+  "name": "카누글램핑펜션",
+  "region": "강원 화천군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "7988",
+  "name": "광덕그린농원 야영장",
+  "region": "강원 화천군",
+  "platform": "phone_only",
+  "readability": "no",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "100627",
+  "name": "수복캠핑장",
+  "region": "강원 춘천시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "3370",
+  "name": "하오재캠핑장",
+  "region": "강원 철원군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "2987",
+  "name": "춘천박사마을 어린이 글램핑장",
+  "region": "강원 춘천시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "3114",
+  "name": "클럽레스피아",
+  "region": "강원 홍천군",
+  "platform": "phone_only",
+  "readability": "no",
+  "confidence": "med",
+  "source": "URL보유"
+ },
+ {
+  "id": "100344",
+  "name": "숲속에 머물다",
+  "region": "강원 춘천시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "100677",
+  "name": "캠핑중DOG",
+  "region": "강원 홍천군",
+  "platform": "naver",
+  "readability": "partial",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "2877",
+  "name": "유곡리 평화마을 캠핑장",
+  "region": "강원 철원군",
+  "platform": "public",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "101640",
+  "name": "세이지힐 패밀리캠핑장",
+  "region": "강원 홍천군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "100360",
+  "name": "세이지힐 오토캠핑장",
+  "region": "강원 홍천군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "7925",
+  "name": "춘천별빛캠핑장",
+  "region": "강원 춘천시",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "101131",
+  "name": "또와또 오토캠핑장",
+  "region": "강원 화천군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "100801",
+  "name": "마운틴87",
+  "region": "강원 홍천군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "100417",
+  "name": "용화산테마파크 캠핑장",
+  "region": "강원 춘천시",
+  "platform": "campingtalk",
+  "readability": "partial",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "8167",
+  "name": "홍천높은터캠핑장",
+  "region": "강원 홍천군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "100263",
+  "name": "금옥골 숲속작은마을",
+  "region": "강원 춘천시",
+  "platform": "thankq",
+  "readability": "partial",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "100851",
+  "name": "동지화캠핑장",
+  "region": "강원 화천군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "100827",
+  "name": "사가록캠핑장",
+  "region": "강원 춘천시",
+  "platform": "naver",
+  "readability": "partial",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "100695",
+  "name": "숲 나들이 야영장",
+  "region": "강원 횡성군",
+  "platform": "phone_only",
+  "readability": "no",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "101157",
+  "name": "산수향 야영장",
+  "region": "강원 횡성군",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "6959",
+  "name": "국립화천숲속야영장",
+  "region": "강원 화천군",
+  "platform": "public",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "8159",
+  "name": "청평사 국민여가 캠핑장",
+  "region": "강원 춘천시",
+  "platform": "public",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "100413",
+  "name": "또보리 캠프",
+  "region": "강원 횡성군",
+  "platform": "phone_only",
+  "readability": "no",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "100080",
+  "name": "홍천 반딧불캠핑장",
+  "region": "강원 홍천군",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "7375",
+  "name": "동당미펜션 야영장",
+  "region": "강원 횡성군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "873",
+  "name": "횡성동당미계곡캠핑장",
+  "region": "강원 횡성군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "101237",
+  "name": "초록빛마을 관광농원 야영장",
+  "region": "강원 화천군",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "100765",
+  "name": "굿나잇 캠핑장",
+  "region": "강원 홍천군",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "101023",
+  "name": "봉바위돌집 캠핑장",
+  "region": "강원 원주시",
+  "platform": "phone_only",
+  "readability": "no",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "101177",
+  "name": "칠봉 송정 캠핑장",
+  "region": "강원 원주시",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "100498",
+  "name": "칠봉두루뭉캠핑장",
+  "region": "강원 원주시",
+  "platform": "campingtalk",
+  "readability": "partial",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "102166",
+  "name": "홍천제이(J)글램핑",
+  "region": "강원 홍천군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "1770",
+  "name": "솔밭체육공원오토캠핑장",
+  "region": "강원 횡성군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "101312",
+  "name": "수타사 힐링 캠프",
+  "region": "강원 홍천군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "100927",
+  "name": "별보는 마을",
+  "region": "강원 원주시",
+  "platform": "thankq",
+  "readability": "partial",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "277",
+  "name": "홍천고인돌오토캠핑장",
+  "region": "강원 홍천군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "3569",
+  "name": "화천에코스쿨 생태체험장",
+  "region": "강원 화천군",
+  "platform": "public",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "100651",
+  "name": "수인야영장",
+  "region": "강원 양구군",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "100170",
+  "name": "사발소캠핑장",
+  "region": "강원 횡성군",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "350",
+  "name": "구룡자동차야영장(치악산국립공원)",
+  "region": "강원 원주시",
+  "platform": "public",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "101176",
+  "name": "생슐피스",
+  "region": "강원 홍천군",
+  "platform": "unknown",
+  "readability": "unknown",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "8033",
+  "name": "수산하늘풍경",
+  "region": "강원 인제군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "100793",
+  "name": "귀촌 야영장",
+  "region": "강원 횡성군",
+  "platform": "phone_only",
+  "readability": "no",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "462",
+  "name": "금대자동차야영장(치악산국립공원)",
+  "region": "강원 원주시",
+  "platform": "public",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "3407",
+  "name": "한다리골캠핑장",
+  "region": "강원 원주시",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "검색"
+ },
+ {
+  "id": "2015",
+  "name": "안단테 홍천캠핑장",
+  "region": "강원 홍천군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "100792",
+  "name": "새말캠핑장",
+  "region": "강원 횡성군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "100456",
+  "name": "알지캠프266",
+  "region": "강원 홍천군",
+  "platform": "self",
+  "readability": "yes",
+  "confidence": "med",
+  "source": "검색"
+ },
+ {
+  "id": "101584",
+  "name": "방산면 송현리 캠핑장",
+  "region": "강원 양구군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "low",
+  "source": "검색"
+ },
+ {
+  "id": "1311",
+  "name": "벳소캠프",
+  "region": "강원 횡성군",
+  "platform": "camplink",
+  "readability": "partial",
+  "confidence": "high",
+  "source": "URL보유"
+ },
+ {
+  "id": "100587",
+  "name": "자작자작 캠핑장",
+  "region": "강원 횡성군",
+  "platform": "camfit",
+  "readability": "no",
+  "confidence": "high",
+  "source": "검색"
+ }
+]

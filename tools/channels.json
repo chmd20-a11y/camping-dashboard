@@ -1,0 +1,1432 @@
+[
+ {
+  "id": "101641",
+  "name": "파주 성수캠핑장",
+  "region": "파주시",
+  "resveCl": "전화",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "031-935-6113",
+  "channel": "전화전용"
+ },
+ {
+  "id": "101251",
+  "name": "프로방스 캠핑장",
+  "region": "파주시",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "070-8778-3100",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "306",
+  "name": "공릉관광지 캠핑장",
+  "region": "파주시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "031-950-1990",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100613",
+  "name": "자유로캠핑장",
+  "region": "파주시",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "0507-1326-5017",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "1218",
+  "name": "박석 캠핑장",
+  "region": "파주시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "http://www.campingsearch.co.kr/campReserve/reserveTableStatus.asp?idx=421",
+  "homepage": "http://cafe.naver.com/baksukcamping",
+  "tel": "",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "7254",
+  "name": "평화누리캠핑장",
+  "region": "파주시",
+  "resveCl": "온라인예약대기,온라인실시간예약",
+  "resveUrl": "https://ggtour.or.kr/camping/main.web",
+  "homepage": "https://ggtour.or.kr/camping/main.web",
+  "tel": "031-956-8350",
+  "channel": "공공(읽기가능)"
+ },
+ {
+  "id": "1066",
+  "name": "명학산 캠핑장",
+  "region": "파주시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "http://www.myeonghakcamp.com/bbs/board.php?bo_table=0502",
+  "homepage": "http://www.myeonghakcamp.com/",
+  "tel": "010-6649-2387",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "7961",
+  "name": "어반캠핑 마장호수",
+  "region": "파주시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "010-7291-3565",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "101601",
+  "name": "파주발랑캠핑타운",
+  "region": "파주시",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "1555-5580-",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "101017",
+  "name": "outside",
+  "region": "파주시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "101891",
+  "name": "동화힐링캠프",
+  "region": "파주시",
+  "resveCl": "전화,온라인실시간예약,현장",
+  "resveUrl": "https://map.naver.com/p/entry/place/35637335?lng=126.8403803&lat=37.8908807&placePath=/room?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202507241717&locale=ko&svcName=map_pcv5&businessCategory=camping&from=map&fromPanelNum=1&additionalHeight=76&timestamp=202507241717&locale=ko&svcName=map_pcv5&searchType=place&c=15.00,0,0,0,dh",
+  "homepage": "https://www.dwhealing.com/",
+  "tel": "010-7340-8506",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "101248",
+  "name": "배나무꽃 캠핑장",
+  "region": "파주시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://booking.naver.com/booking/3/bizes/1062262",
+  "homepage": "https://bnmg.modoo.at/",
+  "tel": "0507-1436-4679",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "1321",
+  "name": "별난독서문화체험장",
+  "region": "파주시",
+  "resveCl": "온라인예약대기",
+  "resveUrl": "https://bookculture1315.modoo.at/",
+  "homepage": "https://bookculture1315.modoo.at/",
+  "tel": "031-959-9560",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "2534",
+  "name": "은사시캠핑장",
+  "region": "파주시",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "http://www.은사시힐링캠핑장.kr/",
+  "tel": "031-959-4795",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "100299",
+  "name": "두부삼촌캠프",
+  "region": "파주시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "https:\\/\\/www.instagram.com\\/uncle_dubu",
+  "tel": "",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "3361",
+  "name": "하마캠핑장",
+  "region": "파주시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "http://hamacamping.netfu1234.gethompy.com/netfu_rpension/res/realtime.html",
+  "homepage": "http://cafe.naver.com/hamacamping",
+  "tel": "",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "100517",
+  "name": "태양힐링숲",
+  "region": "파주시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "http://www.xn--9y2bk8m6xcn4pg9h.kr/index.php",
+  "tel": "",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "100524",
+  "name": "평화누리체험장",
+  "region": "연천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100749",
+  "name": "한솔 스테이",
+  "region": "연천군",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "101879",
+  "name": "임진강 햇살 글램핑",
+  "region": "연천군",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "010-5345-8253",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "101212",
+  "name": "옴니버스 캠핑장",
+  "region": "연천군",
+  "resveCl": "전화,온라인예약대기,온라인실시간예약,현장",
+  "resveUrl": "http://xn--9i1bq8po4ef3d.com/",
+  "homepage": "http://xn--9i1bq8po4ef3d.com/",
+  "tel": "010-4937-2080",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "6857",
+  "name": "영수야 놀자",
+  "region": "연천군",
+  "resveCl": "전화",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "031-833-7796",
+  "channel": "전화전용"
+ },
+ {
+  "id": "101669",
+  "name": "캠핑엔조이",
+  "region": "파주시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "캠핏\t\t\t",
+  "homepage": "",
+  "tel": "031-959-1762",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "101049",
+  "name": "농업회사법인 시즌온 주식회사",
+  "region": "파주시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "101297",
+  "name": "바베큐존파크",
+  "region": "포천시",
+  "resveCl": "전화,온라인실시간예약,현장",
+  "resveUrl": "네이버",
+  "homepage": "",
+  "tel": "010-9292-4926",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "102032",
+  "name": "(에드203) 플라네캠핑장",
+  "region": "연천군",
+  "resveCl": "전화,온라인실시간예약",
+  "resveUrl": "https://instargram.com/flaner_camp",
+  "homepage": "",
+  "tel": "0507-1374-0679",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "101549",
+  "name": "산속정원캠핑장",
+  "region": "연천군",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100668",
+  "name": "숲속의쉼터 키즈",
+  "region": "연천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "8113",
+  "name": "아미캠핑장",
+  "region": "연천군",
+  "resveCl": "전화,온라인실시간예약,현장",
+  "resveUrl": "캠핏",
+  "homepage": "",
+  "tel": "010-7557-5483",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "101880",
+  "name": "여우별 캠핑장",
+  "region": "연천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "캠핏 or 네이버 ",
+  "homepage": "https://www.instagram.com/foxstarcamping/",
+  "tel": "010-8449-6692",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "100492",
+  "name": "달그린캠프",
+  "region": "연천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "101088",
+  "name": "금동휴양림캠프3",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "3262",
+  "name": "포시즌스 오토캠핑장",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://naver.me/Fvn7E1Ja",
+  "homepage": "",
+  "tel": "031-535-8585",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "100664",
+  "name": "금동휴양림캠프2",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "3423",
+  "name": "한탄강관광지오토캠핑장",
+  "region": "연천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "http://www.hantan.co.kr/index.php?PageID=ht_a03_b01",
+  "homepage": "http://www.hantan.co.kr",
+  "tel": "031-833-0030",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "100351",
+  "name": "엉클킴스 캠핑장",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "0507-0265-0782",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "2762",
+  "name": "주식회사 신북리조트",
+  "region": "포천시",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "sinbukresort,co.kr",
+  "tel": "010-9767-0651",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "100787",
+  "name": "금동휴양림캠프1",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100370",
+  "name": "포천그린별캠핑장",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "1151",
+  "name": "물꽃 캠핑장",
+  "region": "연천군",
+  "resveCl": "",
+  "resveUrl": "https://www.camfit.co.kr/camp/60fe785be2586e001e7df37a",
+  "homepage": "http://cafe.naver.com/waterbloomcamping",
+  "tel": "010-3627-2781",
+  "channel": "Camfit(잠김-읽기불가)"
+ },
+ {
+  "id": "101106",
+  "name": "임진강 캠핑장",
+  "region": "연천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://www.camfit.co.kr/camp/6502ffdf14462a001eb49983",
+  "homepage": "",
+  "tel": "0507-1364-2069",
+  "channel": "Camfit(잠김-읽기불가)"
+ },
+ {
+  "id": "7264",
+  "name": "임진물새롬센터 오토캠핑장",
+  "region": "연천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "010-4697-5939",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100461",
+  "name": "블루밍 캠핑장",
+  "region": "포천시",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "070-4159-0933",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "7584",
+  "name": "깊이울관광농원(깊이울 캠핑장)",
+  "region": "포천시",
+  "resveCl": "전화,온라인실시간예약",
+  "resveUrl": "https://deepcamp.modoo.at",
+  "homepage": "https://booking.naver.com/booking/3/bizes/214905",
+  "tel": "031-532-9787",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "100482",
+  "name": "포천 땡큐247 캠핑장",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100604",
+  "name": "메이드캠퍼스",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100616",
+  "name": "잭스캠프",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://naver.me/GGURMw6g",
+  "homepage": "",
+  "tel": "0507-1410-0928",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "100618",
+  "name": "타이니포춘",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "0507-1337-0930",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100654",
+  "name": "딥포레스트캠핑장",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100703",
+  "name": "스톤브룩 캠핑장",
+  "region": "연천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "101190",
+  "name": "돈키호테캠핑",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100778",
+  "name": "베네치아캠핑장",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "7211",
+  "name": "수피다 캠핑장",
+  "region": "강원 화천군",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "101050",
+  "name": "우니메이카 포천점",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "https://www.instagram.com/woonymaica_pocheon",
+  "tel": "",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "7747",
+  "name": "포천두꺼비",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://map.naver.com/p/entry/place/1058738813?c=14.25,0,0,0,dh",
+  "homepage": "https://map.naver.com/p/entry/place/1058738813?c=14.25,0,0,0,dh",
+  "tel": "0507-1434-3082",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "100283",
+  "name": "리버앤캠프",
+  "region": "연천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "2886",
+  "name": "캠핑플래닛",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://cafe.naver.com/dotoricamp",
+  "homepage": "https://cafe.naver.com/dotoricamp",
+  "tel": "031-531-5651",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "2200",
+  "name": "연천재인폭포오토캠핑장",
+  "region": "연천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://tickets.interpark.com/goods/22016459",
+  "homepage": "https://yccs.or.kr/pub/jeincamp_guide.do",
+  "tel": "031-834-7271",
+  "channel": "공공(읽기가능)"
+ },
+ {
+  "id": "101434",
+  "name": "포애뜰",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "네이버\t\t\t",
+  "homepage": "",
+  "tel": "010-9692-1739",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "100256",
+  "name": "우리오토캠핑장",
+  "region": "연천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "101038",
+  "name": "초이스캠프",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "http://choiscamping.com/",
+  "tel": "",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "101204",
+  "name": "백설기캠핑장",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "https://www.instagram.com/baekseolgi_camping/",
+  "tel": "",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "100590",
+  "name": "라곰",
+  "region": "연천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "https:\\/\\/www.camfit.co.kr\\/camp\\/631fe026dd78d6001e749d86",
+  "tel": "0507-1312-5246",
+  "channel": "Camfit(잠김-읽기불가)"
+ },
+ {
+  "id": "101966",
+  "name": "아미힐(ami hill)",
+  "region": "연천군",
+  "resveCl": "",
+  "resveUrl": "https://map.naver.com/p/entry/place/2066747227?placePath=/room?entry=plt&from=map&fromPanelNum=1&additionalHeight=76&timestamp=202601131638&locale=ko&svcName=map_pcv5&businessCategory=camping&from=map&fromPanelNum=1&additionalHeight=76&timestamp=202601131638&locale=ko&svcName=map_pcv5&businessCategory=camping&searchType=place&lng=127.1343295&lat=38.1276509&c=15.00,0,0,0,dh",
+  "homepage": "https://www.instagram.com/ami_hill__",
+  "tel": "010-9689-2100",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "100276",
+  "name": "청계호수 자작나무숲 캠핑장",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "https://www.instagram.com/jajaknamoosoopcamp/",
+  "tel": "",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "3271",
+  "name": "포천 비둘기낭 캠핑장",
+  "region": "포천시",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "https://camp.pcfac.or.kr/",
+  "tel": "1666-9260-",
+  "channel": "공공(읽기가능)"
+ },
+ {
+  "id": "100585",
+  "name": "에스원캠프",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "101169",
+  "name": "포천 몽롱한노을 카라반 캠핑장",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://camfit.co.kr/camp/652768f59a7f4f001ecac190",
+  "homepage": "",
+  "tel": "0507-1316-3748",
+  "channel": "Camfit(잠김-읽기불가)"
+ },
+ {
+  "id": "1051",
+  "name": "핫도그342애견글램핑카라반 주식회사",
+  "region": "포천시",
+  "resveCl": "전화,온라인예약대기,현장",
+  "resveUrl": "http://camplink.co.kr/?camp=whlee1962",
+  "homepage": "http://cafe.daum.net/megacamping",
+  "tel": "010-7226-0430",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "101214",
+  "name": "캠프다온",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "cafe.naver.com/campdaon",
+  "tel": "",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "102029",
+  "name": "캠프빌리지 345",
+  "region": "포천시",
+  "resveCl": "전화,온라인예약대기,온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "https://cafe.naver.com/camporeum",
+  "tel": "",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "102285",
+  "name": "캠프 몽림",
+  "region": "포천시",
+  "resveCl": "전화,온라인예약대기,온라인실시간예약,현장",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "010-5940-8500",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100401",
+  "name": "캠프원",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "https://www.instagram.com/_campone_/",
+  "tel": "",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "101133",
+  "name": "캠핑7604",
+  "region": "연천군",
+  "resveCl": "전화",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "031-834-5693",
+  "channel": "전화전용"
+ },
+ {
+  "id": "100917",
+  "name": "포천 리버빌캠핑&카페",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "http://xn--703-y18my7iba403a.com/r/rev_make.php?pen_code=j1634&s_group_num=0",
+  "homepage": "http://xn--703-y18my7iba403a.com/",
+  "tel": "",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "100483",
+  "name": "테라스527 캠핑장",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "101741",
+  "name": "너우리 캠핑농원",
+  "region": "포천시",
+  "resveCl": "",
+  "resveUrl": "https://camfit.co.kr/camp/6819b882f2cc84001dc1b759",
+  "homepage": "",
+  "tel": "0507-1391-3243",
+  "channel": "Camfit(잠김-읽기불가)"
+ },
+ {
+  "id": "100706",
+  "name": "벤캠프(Ben Camp)",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "12",
+  "name": "어반슬로우시티",
+  "region": "강원 춘천시",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "1899-9349-",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "1085",
+  "name": "몬테비얀코",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://cafe.naver.com/montebianco\t\t\t",
+  "homepage": "https://cafe.naver.com/montebianco\t\t",
+  "tel": "010-2102-7993",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "39",
+  "name": "DMZ 캠핑장",
+  "region": "강원 철원군",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "010-4761-7283",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "8032",
+  "name": "약사밤나무집 캠핑장",
+  "region": "포천시",
+  "resveCl": "전화,현장",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "010-8909-7082",
+  "channel": "전화전용"
+ },
+ {
+  "id": "7814",
+  "name": "휴랜드관광농원",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "www.pocheonhue.com",
+  "tel": "",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "6953",
+  "name": "각흘계곡캠핑장",
+  "region": "포천시",
+  "resveCl": "",
+  "resveUrl": "https://booking.naver.com/booking/3/bizes/118651/search?area=pll",
+  "homepage": "http://kh-camp.com/sub/intro.html",
+  "tel": "",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "100598",
+  "name": "가보세캠핑장",
+  "region": "포천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "2538",
+  "name": "엘리시안 강촌 캠핑파크",
+  "region": "강원 춘천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://home-ticket.co.kr/elysian/mall/?siteFlag=room&id=&com=",
+  "homepage": "https://www.elysian.co.kr/gangchon/restaurant/restaurant.asp?facility_id=FCT00000000000000201",
+  "tel": "033-260-2568",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "165",
+  "name": "강촌달머리캠핑장",
+  "region": "강원 춘천시",
+  "resveCl": "온라인예약대기",
+  "resveUrl": "http://cafe.naver.com/moonheadcamp/",
+  "homepage": "http://cafe.naver.com/moonheadcamp/",
+  "tel": "010-8983-4040",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "100547",
+  "name": "캠프하다",
+  "region": "강원 홍천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://naver.me/F2w3xY1p",
+  "homepage": "https://cafe.naver.com/camphada",
+  "tel": "0507-1315-8336",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "100465",
+  "name": "도담캠핑장",
+  "region": "강원 홍천군",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "https://blog.naver.com/sbh0823",
+  "tel": "",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "100671",
+  "name": "홍천 뜨란 오토캠핑장",
+  "region": "강원 홍천군",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "https://hcddrancamping.modoo.at/",
+  "tel": "",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "100693",
+  "name": "춘천 더숲 캠핑장",
+  "region": "강원 춘천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "http://r.camperstory.com/resMain.hbb?reserve_path=RP&campseq=1790",
+  "homepage": "https://campinglaforet.modoo.at/",
+  "tel": "",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "3024",
+  "name": "카누글램핑펜션",
+  "region": "강원 화천군",
+  "resveCl": "전화,온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "http://www.canoeglamping.com/main/",
+  "tel": "010-4800-8349",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "7988",
+  "name": "광덕그린농원 야영장",
+  "region": "강원 화천군",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "https://cafe.naver.com/kdgfcamp",
+  "tel": "010-4691-6813",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "100627",
+  "name": "수복캠핑장",
+  "region": "강원 춘천시",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "https://subokcamping.modoo.at/",
+  "tel": "",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "3370",
+  "name": "하오재캠핑장",
+  "region": "강원 철원군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://camfit.onelink.me/y0My/znz8793k",
+  "homepage": "http://cafe.naver.com/dreamvillcampgp1",
+  "tel": "010-4615-4059",
+  "channel": "Camfit(잠김-읽기불가)"
+ },
+ {
+  "id": "2987",
+  "name": "춘천박사마을 어린이 글램핑장",
+  "region": "강원 춘천시",
+  "resveCl": "온라인예약대기",
+  "resveUrl": "http://anitowncamp.nowr.net/m_member/?co_id=anitowncamp",
+  "homepage": "http://anitowncampgrounds.com/",
+  "tel": "033-240-1791",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "3114",
+  "name": "클럽레스피아",
+  "region": "강원 홍천군",
+  "resveCl": "전화",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "010-7709-0114",
+  "channel": "전화전용"
+ },
+ {
+  "id": "100344",
+  "name": "숲속에 머물다",
+  "region": "강원 춘천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100677",
+  "name": "캠핑중DOG",
+  "region": "강원 홍천군",
+  "resveCl": "온라인예약대기",
+  "resveUrl": "https://café.naver.com/campingjungdog",
+  "homepage": "https://cafe.naver.com/campingjungdog",
+  "tel": "010-8768-1191",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "2877",
+  "name": "유곡리 평화마을 캠핑장",
+  "region": "강원 철원군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "http://yeyak.seoul.go.kr/search/totalSearchView.web?sort=SSORT&sortOld=SSORT&searchField=ALL&submenu=0&areaname=25&checkpay=&svsStats=0&svsData=0&useInfo=0&areaNum=25&SortUD=1&sortOne=SSORT,1&viewCng=",
+  "homepage": "http://blog.naver.com/seoul_camp",
+  "tel": "033-455-3904",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "101640",
+  "name": "세이지힐 패밀리캠핑장",
+  "region": "강원 홍천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "http://sagehill.co.kr/\t\t\t",
+  "homepage": "http://sagehill.co.kr/",
+  "tel": "033-432-8259",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "100360",
+  "name": "세이지힐 오토캠핑장",
+  "region": "강원 홍천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://www.camfit.co.kr/camp/653faa685f7b3e001e9499d3",
+  "homepage": "http://sagehill.co.kr/",
+  "tel": "033-432-8259",
+  "channel": "Camfit(잠김-읽기불가)"
+ },
+ {
+  "id": "7925",
+  "name": "춘천별빛캠핑장",
+  "region": "강원 춘천시",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "https://www.ccstarlight.com/",
+  "tel": "010-8294-3466",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "101131",
+  "name": "또와또 오토캠핑장",
+  "region": "강원 화천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100801",
+  "name": "마운틴87",
+  "region": "강원 홍천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100417",
+  "name": "용화산테마파크 캠핑장",
+  "region": "강원 춘천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "https://www.instagram.com/yonghwasan_theme_park/",
+  "tel": "",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "8167",
+  "name": "홍천높은터캠핑장",
+  "region": "강원 홍천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://camfit.co.kr/camp/66cd9e2575ed0b001ee62593",
+  "homepage": "https://cafe.naver.com/netcamp",
+  "tel": "",
+  "channel": "Camfit(잠김-읽기불가)"
+ },
+ {
+  "id": "100263",
+  "name": "금옥골 숲속작은마을",
+  "region": "강원 춘천시",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "www.금옥골숲속작은마을.com",
+  "tel": "",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "100851",
+  "name": "동지화캠핑장",
+  "region": "강원 화천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://www.camfit.co.kr/camp/642ceb4d8688c5001e8d8802",
+  "homepage": "",
+  "tel": "010-4983-4720",
+  "channel": "Camfit(잠김-읽기불가)"
+ },
+ {
+  "id": "100827",
+  "name": "사가록캠핑장",
+  "region": "강원 춘천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://booking.naver.com/booking/3/bizes/896756",
+  "homepage": "",
+  "tel": "033-241-9522",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "100695",
+  "name": "숲 나들이 야영장",
+  "region": "강원 횡성군",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "101157",
+  "name": "산수향 야영장",
+  "region": "강원 횡성군",
+  "resveCl": "전화,온라인실시간예약,현장",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "033-342-8714",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "6959",
+  "name": "국립화천숲속야영장",
+  "region": "강원 화천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://www.foresttrip.go.kr",
+  "homepage": "https://www.foresttrip.go.kr",
+  "tel": "033-441-4466",
+  "channel": "공공(읽기가능)"
+ },
+ {
+  "id": "8159",
+  "name": "청평사 국민여가 캠핑장",
+  "region": "강원 춘천시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "https://cheongpyeongsa.ticketplay.zone/portal/index",
+  "tel": "033-240-1626",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "100413",
+  "name": "또보리 캠프",
+  "region": "강원 횡성군",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "https://cafe.naver.com/ddoborycamp",
+  "tel": "",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "100080",
+  "name": "홍천 반딧불캠핑장",
+  "region": "강원 홍천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "https://blog.naver.com/hongcheon_01",
+  "tel": "",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "7375",
+  "name": "동당미펜션 야영장",
+  "region": "강원 횡성군",
+  "resveCl": "온라인실시간예약,현장",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "033-345-5857",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "873",
+  "name": "횡성동당미계곡캠핑장",
+  "region": "강원 횡성군",
+  "resveCl": "온라인실시간예약,현장",
+  "resveUrl": "",
+  "homepage": "http://횡성동당미계곡캠핑장.kr",
+  "tel": "033-345-5857",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "101237",
+  "name": "초록빛마을 관광농원 야영장",
+  "region": "강원 화천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100765",
+  "name": "굿나잇 캠핑장",
+  "region": "강원 홍천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "https://blog.naver.com/sun16041",
+  "tel": "0507-1341-1604",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "101023",
+  "name": "봉바위돌집 캠핑장",
+  "region": "강원 원주시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "http://cafe.naver.com/bongbawi",
+  "tel": "33-732-9143",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "101177",
+  "name": "칠봉 송정 캠핑장",
+  "region": "강원 원주시",
+  "resveCl": "전화,온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "033-732-1162",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100498",
+  "name": "칠봉두루뭉캠핑장",
+  "region": "강원 원주시",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "https://doorumoong.campingt.me/3627/home/index",
+  "tel": "",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "102166",
+  "name": "홍천제이(J)글램핑",
+  "region": "강원 홍천군",
+  "resveCl": "전화,온라인예약대기,온라인실시간예약,현장",
+  "resveUrl": "https://홍천제이글램핑.kr",
+  "homepage": "https://홍천제이글램핑.kr",
+  "tel": "033-433-6323",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "1770",
+  "name": "솔밭체육공원오토캠핑장",
+  "region": "강원 횡성군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "http://sol-bat.com/wanee/index.php\t\t\t",
+  "homepage": "http://sol-bat.com/wanee/index.php",
+  "tel": "",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "101312",
+  "name": "수타사 힐링 캠프",
+  "region": "강원 홍천군",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "010-8872-7679",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100927",
+  "name": "별보는 마을",
+  "region": "강원 원주시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "277",
+  "name": "홍천고인돌오토캠핑장",
+  "region": "강원 홍천군",
+  "resveCl": "",
+  "resveUrl": "http://www.dhc34.com/pension/reserve_guide.html?pid=24",
+  "homepage": "http://www.dhc34.com",
+  "tel": "033-432-3473",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "3569",
+  "name": "화천에코스쿨 생태체험장",
+  "region": "강원 화천군",
+  "resveCl": "전화",
+  "resveUrl": "https://eco-school.ihc.go.kr/hb/camp/sub02_02",
+  "homepage": "https://eco-school.ihc.go.kr/hb/camp/sub02_02",
+  "tel": "033-440-4531",
+  "channel": "공공(읽기가능)"
+ },
+ {
+  "id": "100651",
+  "name": "수인야영장",
+  "region": "강원 양구군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100170",
+  "name": "사발소캠핑장",
+  "region": "강원 횡성군",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "010-3887-1836",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "350",
+  "name": "구룡자동차야영장(치악산국립공원)",
+  "region": "강원 원주시",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "http://www.knps.or.kr/knpshp/visit/reservation/camp.jsp?menuid=P10610&depth=3",
+  "homepage": "http://www.knps.or.kr/",
+  "tel": "033-732-5231",
+  "channel": "공공(읽기가능)"
+ },
+ {
+  "id": "101176",
+  "name": "생슐피스",
+  "region": "강원 홍천군",
+  "resveCl": "온라인예약대기",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "0507-1394-3695",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "8033",
+  "name": "수산하늘풍경",
+  "region": "강원 인제군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "https://susanskyview.com/",
+  "homepage": "https://susanskyview.com/",
+  "tel": "010-6381-8265",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "100793",
+  "name": "귀촌 야영장",
+  "region": "강원 횡성군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "462",
+  "name": "금대자동차야영장(치악산국립공원)",
+  "region": "강원 원주시",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "http://www.knps.or.kr/front/portal/visit/visitCourseMain.do?parkId=121300&amp;parkNavGb=park_facView&amp;vnewsId=172",
+  "tel": "033-763-5232",
+  "channel": "공공(읽기가능)"
+ },
+ {
+  "id": "3407",
+  "name": "한다리골캠핑장",
+  "region": "강원 원주시",
+  "resveCl": "",
+  "resveUrl": "",
+  "homepage": "www.치악산캠핑장.kr",
+  "tel": "",
+  "channel": "홈피만(예약불명)"
+ },
+ {
+  "id": "2015",
+  "name": "안단테 홍천캠핑장",
+  "region": "강원 홍천군",
+  "resveCl": "전화",
+  "resveUrl": "http://adtcamping.com/",
+  "homepage": "http://adtcamping.com/",
+  "tel": "033-433-0211",
+  "channel": "자체/독립(읽기가능성)"
+ },
+ {
+  "id": "100792",
+  "name": "새말캠핑장",
+  "region": "강원 횡성군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "100456",
+  "name": "알지캠프266",
+  "region": "강원 홍천군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "101584",
+  "name": "방산면 송현리 캠핑장",
+  "region": "강원 양구군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "",
+  "tel": "010-72544579-",
+  "channel": "정보없음(전화추정)"
+ },
+ {
+  "id": "1311",
+  "name": "벳소캠프",
+  "region": "강원 횡성군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "http://camplink.co.kr/?camp=betsocamp",
+  "homepage": "http://cafe.naver.com/betsocamp",
+  "tel": "",
+  "channel": "네이버예약(그레이)"
+ },
+ {
+  "id": "100587",
+  "name": "자작자작 캠핑장",
+  "region": "강원 횡성군",
+  "resveCl": "온라인실시간예약",
+  "resveUrl": "",
+  "homepage": "https://cafe.naver.com/jajakjajakcamp",
+  "tel": "",
+  "channel": "네이버예약(그레이)"
+ }
+]

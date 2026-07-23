@@ -46,6 +46,16 @@ window.CC = window.CC || {};
   function todayYmd() { return fmtYmd(new Date()); }
   function daysFromToday(ymd) { return Math.round((ymdToDate(ymd) - ymdToDate(todayYmd())) / 86400000); }
   function relDay(ymd) { var d = -daysFromToday(ymd); if (d <= 0) return "오늘"; if (d === 1) return "어제"; return d + "일 전"; }
+  function relMin(iso) {
+    if (!iso) return "";
+    var ms = Date.now() - new Date(iso).getTime();
+    if (isNaN(ms) || ms < 0) return "방금";
+    var m = Math.floor(ms / 60000);
+    if (m < 1) return "방금";
+    if (m < 60) return m + "분 전";
+    var h = Math.floor(m / 60); if (h < 24) return h + "시간 전";
+    return Math.floor(h / 24) + "일 전";
+  }
 
   /* ---------- 빠른 날짜 프리셋 (오늘 기준, 예보 범위 안) ---------- */
   function upcomingSat() { var d = new Date(); var add = (6 - d.getDay() + 7) % 7; return addDays(todayYmd(), add); }
@@ -271,7 +281,7 @@ window.CC = window.CC || {};
     var arr = sortedSites();
     var season = CC.seasonOf(state.start);
     var list = $("list"); list.innerHTML = "";
-    var liveN = arr.filter(function (s) { return CC.hasRealtime(s); }).length;
+    var liveN = arr.filter(function (s) { var c = CC.CHAN && CC.CHAN[s.id]; return c ? !!c.on : CC.hasRealtime(s); }).length;
     $("resultCount").textContent = arr.length + "곳 · 온라인예약 " + liveN + " · " + CC.SEASON[season].label + " 추천순";
 
     if (!arr.length) {
@@ -287,8 +297,20 @@ window.CC = window.CC || {};
       var kid = CC.kidPoints(s).length > 0;
       var w = (state.weatherMode === "forecast") ? state.weather[s.id] : null;
       var rl = CC.reserveLink(s);
+      var chan = CC.CHAN ? CC.CHAN[s.id] : null;
+      var av = CC.AVAIL ? CC.AVAIL[s.id] : null;
+      var weekend = CC.isWeekendStay(state.start);
 
       var badges = "";
+      // 자리 배지: ①실데이터(🟢 자리있음 N분전) > ②내가 찍은 확인은 tray로 표시 > ③예측
+      if (av && av.status) {
+        var avTxt = av.status === "open" ? ("🟢 자리있음" + (av.remain ? " " + av.remain : ""))
+                  : (av.status === "full" ? "🔴 마감" : "🟠 자리 임박");
+        badges += '<span class="pill av-real" title="' + esc((av.source || "") + " · " + relMin(av.checkedAt)) + '">' + avTxt + ' · ' + relMin(av.checkedAt) + '</span>';
+      } else if (!chk) {
+        var hint = CC.availabilityHint(s, w, weekend, chan, season);
+        badges += '<span class="pill ' + hint.cls + '">' + hint.emoji + ' ' + hint.txt + '<i class="av-pred">예측</i></span>';
+      }
       if (w) {
         badges += '<span class="pill wx ' + CC.wxClass(w) + '">' + CC.wxText(w) + '</span>';
         badges += '<span class="pill wind ' + CC.windClass(w) + '">' + CC.windText(w) + (w.windSev >= 3 ? ' ⚠' : '') + '</span>';
@@ -297,7 +319,8 @@ window.CC = window.CC || {};
       if (fit && reason) badges += '<span class="pill acc">' + CC.SEASON[season].emoji + ' ' + esc(reason) + '</span>';
       if (kid) badges += pill("👨‍👩‍👧 아이 좋아요", "kid");
       if (s.drive <= 40) badges += pill("가까움", "brand");
-      if (CC.hasRealtime(s)) badges += pill("🟢 온라인예약", "rt");
+      if (chan && chan.on) badges += pill("🔗 " + esc(chan.pk), "rt");
+      else if (CC.hasRealtime(s)) badges += pill("🟢 온라인예약", "rt");
 
       var autoTxt = s.autoSite > 0 ? ("오토 " + s.autoSite + "면") : "오토캠핑";
       var openLabel = rl.calendar ? "🗓️ 예약 열기" : (rl.direct ? "🔗 예약처" : "🔍 예약 검색");
@@ -409,6 +432,22 @@ window.CC = window.CC || {};
       }).join("") +
       '</div>' + (chk ? '<span class="cd-when">' + relDay(chk.d) + ' 표시함</span>' : '') + '</div>';
 
+    // 예약 채널 · 자리(실데이터 or 예측)
+    var chan2 = CC.CHAN ? CC.CHAN[s.id] : null;
+    var av2 = CC.AVAIL ? CC.AVAIL[s.id] : null;
+    var weekend2 = CC.isWeekendStay(state.start);
+    var avBlock;
+    if (av2 && av2.status) {
+      var avt = av2.status === "open" ? ("🟢 <b>자리있음</b>" + (av2.remain ? " " + av2.remain + "자리" : ""))
+              : (av2.status === "full" ? "🔴 <b>마감</b>" : "🟠 <b>자리 임박</b>");
+      avBlock = '<div class="av-detail real">' + avt + ' · ' + relMin(av2.checkedAt) + ' 기준'
+              + (av2.source ? ' <span class="av-src">(' + esc(av2.source) + ')</span>' : '') + '</div>';
+    } else {
+      var h2 = CC.availabilityHint(s, w, weekend2, chan2, season);
+      avBlock = '<div class="av-detail ' + h2.cls + '">' + h2.emoji + ' 예약가능성 <b>' + h2.txt + '</b> <i class="av-pred">예측</i>'
+              + (chan2 && chan2.pk ? ' · 예약: <b>' + esc(chan2.pk) + '</b>' : '') + '</div>';
+    }
+
     var srcNote;
     if (rl.calendar) {
       srcNote = '🗓️ <b>' + periodTxt() + '</b> · 아래 <b>예약 캘린더 열기</b>를 누르면 예약 사이트에서 이 기간 <b>실시간 빈자리</b>를 바로 확인·예약할 수 있어요.';
@@ -433,6 +472,7 @@ window.CC = window.CC || {};
           : '<div class="season-note">이 계절(' + CC.SEASON[season].label + ')엔 우선 추천 대상은 아니에요.</div>') +
         (kp.length ? '<div class="kid-note">👨‍👩‍👧 아이 좋은 곳 — ' + esc(kp.join(" · ")) + '</div>' : '') +
         wxBlock +
+        avBlock +
         '<div class="blk-h">시설 · 환경</div>' +
         '<div class="tagrow">' + (s.tags.length ? s.tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join("") : '<span class="tag">정보 준비중</span>') + '</div>' +
         '<div class="src-note">' + srcNote + '</div>' +
